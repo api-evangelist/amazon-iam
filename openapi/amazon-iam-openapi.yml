@@ -1,0 +1,1493 @@
+openapi: 3.1.0
+info:
+  title: Amazon IAM API
+  description: >-
+    Amazon Identity and Access Management (IAM) enables you to manage access to
+    AWS services and resources securely. Using IAM, you can create and manage
+    AWS users and groups, and use permissions to allow and deny their access to
+    AWS resources.
+  version: '2010-05-08'
+  contact:
+    name: Kin Lane
+    url: https://aws.amazon.com/iam/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://iam.amazonaws.com
+    description: IAM API endpoint
+paths:
+  /?Action=CreateUser:
+    get:
+      operationId: CreateUser
+      summary: Create a new IAM user
+      description: Creates a new IAM user for your AWS account.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - CreateUser
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: UserName
+          in: query
+          required: true
+          description: The name of the user to create.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 64
+        - name: Path
+          in: query
+          description: The path for the user name.
+          schema:
+            type: string
+        - name: Tags.member.N
+          in: query
+          description: Tags to attach to the user.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateUserResponse'
+        '409':
+          description: EntityAlreadyExists - User already exists
+        '400':
+          description: ValidationError or LimitExceeded
+      tags:
+        - Users
+
+  /?Action=GetUser:
+    get:
+      operationId: GetUser
+      summary: Get information about an IAM user
+      description: >-
+        Retrieves information about the specified IAM user, including the
+        user's creation date, path, unique ID, and ARN.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - GetUser
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: UserName
+          in: query
+          description: >-
+            The name of the user to retrieve. If not specified, the user name
+            is determined from the access key used.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetUserResponse'
+        '404':
+          description: NoSuchEntity - User does not exist
+      tags:
+        - Users
+
+  /?Action=ListUsers:
+    get:
+      operationId: ListUsers
+      summary: List IAM users
+      description: Lists the IAM users that have the specified path prefix.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - ListUsers
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: PathPrefix
+          in: query
+          description: The path prefix for filtering the results.
+          schema:
+            type: string
+        - name: Marker
+          in: query
+          description: Pagination marker from a previous response.
+          schema:
+            type: string
+        - name: MaxItems
+          in: query
+          description: Maximum number of items to return.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListUsersResponse'
+      tags:
+        - Users
+
+  /?Action=UpdateUser:
+    get:
+      operationId: UpdateUser
+      summary: Update an IAM user
+      description: Updates the name and/or the path of the specified IAM user.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - UpdateUser
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: UserName
+          in: query
+          required: true
+          description: Name of the user to update.
+          schema:
+            type: string
+        - name: NewUserName
+          in: query
+          description: New name for the user.
+          schema:
+            type: string
+        - name: NewPath
+          in: query
+          description: New path for the user.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - User does not exist
+        '409':
+          description: EntityAlreadyExists - New user name already taken
+      tags:
+        - Users
+
+  /?Action=DeleteUser:
+    get:
+      operationId: DeleteUser
+      summary: Delete an IAM user
+      description: Deletes the specified IAM user.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - DeleteUser
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: UserName
+          in: query
+          required: true
+          description: The name of the user to delete.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - User does not exist
+        '409':
+          description: DeleteConflict - User has resources attached
+      tags:
+        - Users
+
+  /?Action=CreateRole:
+    get:
+      operationId: CreateRole
+      summary: Create a new IAM role
+      description: Creates a new role for your AWS account.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - CreateRole
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: RoleName
+          in: query
+          required: true
+          description: The name of the role to create.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 64
+        - name: AssumeRolePolicyDocument
+          in: query
+          required: true
+          description: The trust relationship policy document (JSON).
+          schema:
+            type: string
+        - name: Path
+          in: query
+          description: The path to the role.
+          schema:
+            type: string
+        - name: Description
+          in: query
+          description: A description of the role.
+          schema:
+            type: string
+            maxLength: 1000
+        - name: MaxSessionDuration
+          in: query
+          description: Maximum session duration in seconds.
+          schema:
+            type: integer
+            minimum: 3600
+            maximum: 43200
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateRoleResponse'
+        '409':
+          description: EntityAlreadyExists - Role already exists
+      tags:
+        - Roles
+
+  /?Action=GetRole:
+    get:
+      operationId: GetRole
+      summary: Get information about an IAM role
+      description: >-
+        Retrieves information about the specified role, including the role's
+        path, GUID, ARN, and the trust policy.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - GetRole
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: RoleName
+          in: query
+          required: true
+          description: The name of the role to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetRoleResponse'
+        '404':
+          description: NoSuchEntity - Role does not exist
+      tags:
+        - Roles
+
+  /?Action=ListRoles:
+    get:
+      operationId: ListRoles
+      summary: List IAM roles
+      description: Lists the IAM roles that have the specified path prefix.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - ListRoles
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: PathPrefix
+          in: query
+          description: The path prefix for filtering the results.
+          schema:
+            type: string
+        - name: Marker
+          in: query
+          schema:
+            type: string
+        - name: MaxItems
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListRolesResponse'
+      tags:
+        - Roles
+
+  /?Action=DeleteRole:
+    get:
+      operationId: DeleteRole
+      summary: Delete an IAM role
+      description: Deletes the specified role.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - DeleteRole
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: RoleName
+          in: query
+          required: true
+          description: The name of the role to delete.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Role does not exist
+        '409':
+          description: DeleteConflict - Role has resources attached
+      tags:
+        - Roles
+
+  /?Action=AssumeRole:
+    get:
+      operationId: AssumeRole
+      summary: Assume an IAM role
+      description: >-
+        Returns a set of temporary security credentials that you can use to
+        access AWS resources. Uses the AWS STS service.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - AssumeRole
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2011-06-15'
+        - name: RoleArn
+          in: query
+          required: true
+          description: The ARN of the role to assume.
+          schema:
+            type: string
+        - name: RoleSessionName
+          in: query
+          required: true
+          description: An identifier for the assumed role session.
+          schema:
+            type: string
+            minLength: 2
+            maxLength: 64
+        - name: DurationSeconds
+          in: query
+          description: Duration of the role session in seconds.
+          schema:
+            type: integer
+            minimum: 900
+            maximum: 43200
+        - name: ExternalId
+          in: query
+          description: A unique identifier used by third parties.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with temporary credentials
+        '403':
+          description: AccessDenied
+      tags:
+        - Roles
+
+  /?Action=CreatePolicy:
+    get:
+      operationId: CreatePolicy
+      summary: Create a new IAM policy
+      description: Creates a new managed policy for your AWS account.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - CreatePolicy
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: PolicyName
+          in: query
+          required: true
+          description: The name of the policy to create.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 128
+        - name: PolicyDocument
+          in: query
+          required: true
+          description: The JSON policy document.
+          schema:
+            type: string
+        - name: Path
+          in: query
+          description: The path for the policy.
+          schema:
+            type: string
+        - name: Description
+          in: query
+          description: A description of the policy.
+          schema:
+            type: string
+            maxLength: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreatePolicyResponse'
+        '409':
+          description: EntityAlreadyExists - Policy already exists
+      tags:
+        - Policies
+
+  /?Action=GetPolicy:
+    get:
+      operationId: GetPolicy
+      summary: Get information about an IAM policy
+      description: >-
+        Retrieves information about the specified managed policy, including
+        the policy's default version and the total number of IAM entities
+        the policy is attached to.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - GetPolicy
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: PolicyArn
+          in: query
+          required: true
+          description: The ARN of the policy to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetPolicyResponse'
+        '404':
+          description: NoSuchEntity - Policy does not exist
+      tags:
+        - Policies
+
+  /?Action=ListPolicies:
+    get:
+      operationId: ListPolicies
+      summary: List IAM policies
+      description: >-
+        Lists all the managed policies that are available in your AWS account.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - ListPolicies
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: Scope
+          in: query
+          description: Filter by scope (All, AWS, or Local).
+          schema:
+            type: string
+            enum:
+              - All
+              - AWS
+              - Local
+        - name: OnlyAttached
+          in: query
+          description: Filter to only attached policies.
+          schema:
+            type: boolean
+        - name: PathPrefix
+          in: query
+          schema:
+            type: string
+        - name: Marker
+          in: query
+          schema:
+            type: string
+        - name: MaxItems
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListPoliciesResponse'
+      tags:
+        - Policies
+
+  /?Action=AttachUserPolicy:
+    get:
+      operationId: AttachUserPolicy
+      summary: Attach a managed policy to a user
+      description: Attaches the specified managed policy to the specified user.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - AttachUserPolicy
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: UserName
+          in: query
+          required: true
+          description: The name of the IAM user to attach the policy to.
+          schema:
+            type: string
+        - name: PolicyArn
+          in: query
+          required: true
+          description: The ARN of the managed policy to attach.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - User or policy does not exist
+      tags:
+        - Policies
+
+  /?Action=AttachRolePolicy:
+    get:
+      operationId: AttachRolePolicy
+      summary: Attach a managed policy to a role
+      description: Attaches the specified managed policy to the specified IAM role.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - AttachRolePolicy
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: RoleName
+          in: query
+          required: true
+          description: The name of the role to attach the policy to.
+          schema:
+            type: string
+        - name: PolicyArn
+          in: query
+          required: true
+          description: The ARN of the managed policy to attach.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Role or policy does not exist
+      tags:
+        - Policies
+
+  /?Action=DetachUserPolicy:
+    get:
+      operationId: DetachUserPolicy
+      summary: Detach a managed policy from a user
+      description: Removes the specified managed policy from the specified user.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - DetachUserPolicy
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: UserName
+          in: query
+          required: true
+          description: The name of the IAM user to detach the policy from.
+          schema:
+            type: string
+        - name: PolicyArn
+          in: query
+          required: true
+          description: The ARN of the managed policy to detach.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - User or policy does not exist
+      tags:
+        - Policies
+
+  /?Action=DetachRolePolicy:
+    get:
+      operationId: DetachRolePolicy
+      summary: Detach a managed policy from a role
+      description: Removes the specified managed policy from the specified role.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - DetachRolePolicy
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: RoleName
+          in: query
+          required: true
+          description: The name of the role to detach the policy from.
+          schema:
+            type: string
+        - name: PolicyArn
+          in: query
+          required: true
+          description: The ARN of the managed policy to detach.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Role or policy does not exist
+      tags:
+        - Policies
+
+  /?Action=CreateGroup:
+    get:
+      operationId: CreateGroup
+      summary: Create a new IAM group
+      description: Creates a new group.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - CreateGroup
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: GroupName
+          in: query
+          required: true
+          description: The name of the group to create.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 128
+        - name: Path
+          in: query
+          description: The path to the group.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateGroupResponse'
+        '409':
+          description: EntityAlreadyExists - Group already exists
+      tags:
+        - Groups
+
+  /?Action=GetGroup:
+    get:
+      operationId: GetGroup
+      summary: Get information about an IAM group
+      description: Returns a list of IAM users that are in the specified IAM group.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - GetGroup
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: GroupName
+          in: query
+          required: true
+          description: The name of the group.
+          schema:
+            type: string
+        - name: Marker
+          in: query
+          schema:
+            type: string
+        - name: MaxItems
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetGroupResponse'
+        '404':
+          description: NoSuchEntity - Group does not exist
+      tags:
+        - Groups
+
+  /?Action=ListGroups:
+    get:
+      operationId: ListGroups
+      summary: List IAM groups
+      description: Lists the IAM groups that have the specified path prefix.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - ListGroups
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: PathPrefix
+          in: query
+          schema:
+            type: string
+        - name: Marker
+          in: query
+          schema:
+            type: string
+        - name: MaxItems
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListGroupsResponse'
+      tags:
+        - Groups
+
+  /?Action=AddUserToGroup:
+    get:
+      operationId: AddUserToGroup
+      summary: Add a user to an IAM group
+      description: Adds the specified user to the specified group.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - AddUserToGroup
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: GroupName
+          in: query
+          required: true
+          description: The name of the group to update.
+          schema:
+            type: string
+        - name: UserName
+          in: query
+          required: true
+          description: The name of the user to add.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Group or user does not exist
+      tags:
+        - Groups
+
+  /?Action=RemoveUserFromGroup:
+    get:
+      operationId: RemoveUserFromGroup
+      summary: Remove a user from an IAM group
+      description: Removes the specified user from the specified group.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - RemoveUserFromGroup
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: GroupName
+          in: query
+          required: true
+          description: The name of the group to update.
+          schema:
+            type: string
+        - name: UserName
+          in: query
+          required: true
+          description: The name of the user to remove.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Group or user does not exist
+      tags:
+        - Groups
+
+  /?Action=CreateAccessKey:
+    get:
+      operationId: CreateAccessKey
+      summary: Create a new access key
+      description: >-
+        Creates a new AWS secret access key and corresponding AWS access key
+        ID for the specified user.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - CreateAccessKey
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: UserName
+          in: query
+          description: >-
+            The name of the IAM user for the new key. If not specified,
+            uses the calling user.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateAccessKeyResponse'
+        '400':
+          description: LimitExceeded - Maximum number of access keys reached
+      tags:
+        - Access Keys
+
+  /?Action=ListAccessKeys:
+    get:
+      operationId: ListAccessKeys
+      summary: List access keys for a user
+      description: >-
+        Returns information about the access key IDs associated with the
+        specified IAM user.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - ListAccessKeys
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: UserName
+          in: query
+          description: The name of the user.
+          schema:
+            type: string
+        - name: Marker
+          in: query
+          schema:
+            type: string
+        - name: MaxItems
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListAccessKeysResponse'
+        '404':
+          description: NoSuchEntity - User does not exist
+      tags:
+        - Access Keys
+
+  /?Action=DeleteAccessKey:
+    get:
+      operationId: DeleteAccessKey
+      summary: Delete an access key
+      description: >-
+        Deletes the access key pair associated with the specified IAM user.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - DeleteAccessKey
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-08'
+        - name: UserName
+          in: query
+          description: The name of the user whose access key you want to delete.
+          schema:
+            type: string
+        - name: AccessKeyId
+          in: query
+          required: true
+          description: The access key ID for the access key to delete.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Access key does not exist
+      tags:
+        - Access Keys
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        Path:
+          type: string
+          description: The path to the user.
+        UserName:
+          type: string
+          description: The friendly name identifying the user.
+        UserId:
+          type: string
+          description: The stable and unique string identifying the user.
+        Arn:
+          type: string
+          description: >-
+            The Amazon Resource Name (ARN) that identifies the user.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date and time when the user was created.
+        PasswordLastUsed:
+          type: string
+          format: date-time
+          description: >-
+            The date and time when the user's password was last used to
+            sign in.
+        Tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+      required:
+        - UserName
+        - UserId
+        - Arn
+        - CreateDate
+
+    Role:
+      type: object
+      properties:
+        Path:
+          type: string
+          description: The path to the role.
+        RoleName:
+          type: string
+          description: The friendly name that identifies the role.
+        RoleId:
+          type: string
+          description: The stable and unique string identifying the role.
+        Arn:
+          type: string
+          description: The Amazon Resource Name (ARN) specifying the role.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date and time when the role was created.
+        AssumeRolePolicyDocument:
+          type: string
+          description: The policy that grants an entity permission to assume the role.
+        Description:
+          type: string
+          description: A description of the role.
+        MaxSessionDuration:
+          type: integer
+          description: >-
+            The maximum session duration (in seconds) for the specified role.
+        Tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+      required:
+        - RoleName
+        - RoleId
+        - Arn
+        - CreateDate
+        - AssumeRolePolicyDocument
+
+    Policy:
+      type: object
+      properties:
+        PolicyName:
+          type: string
+          description: The friendly name identifying the policy.
+        PolicyId:
+          type: string
+          description: The stable and unique string identifying the policy.
+        Arn:
+          type: string
+          description: The Amazon Resource Name (ARN) of the policy.
+        Path:
+          type: string
+          description: The path to the policy.
+        DefaultVersionId:
+          type: string
+          description: The identifier for the version of the policy that is the default.
+        AttachmentCount:
+          type: integer
+          description: The number of entities the policy is attached to.
+        IsAttachable:
+          type: boolean
+          description: Specifies whether the policy can be attached.
+        Description:
+          type: string
+          description: A description of the policy.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date and time when the policy was created.
+        UpdateDate:
+          type: string
+          format: date-time
+          description: The date and time when the policy was last updated.
+      required:
+        - PolicyName
+        - PolicyId
+        - Arn
+        - CreateDate
+
+    Group:
+      type: object
+      properties:
+        Path:
+          type: string
+          description: The path to the group.
+        GroupName:
+          type: string
+          description: The friendly name that identifies the group.
+        GroupId:
+          type: string
+          description: The stable and unique string identifying the group.
+        Arn:
+          type: string
+          description: The Amazon Resource Name (ARN) specifying the group.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date and time when the group was created.
+      required:
+        - GroupName
+        - GroupId
+        - Arn
+        - CreateDate
+
+    AccessKey:
+      type: object
+      properties:
+        UserName:
+          type: string
+          description: The name of the IAM user the access key is associated with.
+        AccessKeyId:
+          type: string
+          description: The ID for this access key.
+        Status:
+          type: string
+          enum:
+            - Active
+            - Inactive
+          description: The status of the access key.
+        SecretAccessKey:
+          type: string
+          description: The secret key used to sign requests. Only returned on creation.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date when the access key was created.
+      required:
+        - UserName
+        - AccessKeyId
+        - Status
+
+    Tag:
+      type: object
+      properties:
+        Key:
+          type: string
+          description: The key name for the tag.
+          minLength: 1
+          maxLength: 128
+        Value:
+          type: string
+          description: The value for the tag.
+          maxLength: 256
+      required:
+        - Key
+        - Value
+
+    CreateUserResponse:
+      type: object
+      properties:
+        CreateUserResult:
+          type: object
+          properties:
+            User:
+              $ref: '#/components/schemas/User'
+
+    GetUserResponse:
+      type: object
+      properties:
+        GetUserResult:
+          type: object
+          properties:
+            User:
+              $ref: '#/components/schemas/User'
+
+    ListUsersResponse:
+      type: object
+      properties:
+        ListUsersResult:
+          type: object
+          properties:
+            Users:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+
+    CreateRoleResponse:
+      type: object
+      properties:
+        CreateRoleResult:
+          type: object
+          properties:
+            Role:
+              $ref: '#/components/schemas/Role'
+
+    GetRoleResponse:
+      type: object
+      properties:
+        GetRoleResult:
+          type: object
+          properties:
+            Role:
+              $ref: '#/components/schemas/Role'
+
+    ListRolesResponse:
+      type: object
+      properties:
+        ListRolesResult:
+          type: object
+          properties:
+            Roles:
+              type: array
+              items:
+                $ref: '#/components/schemas/Role'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+
+    CreatePolicyResponse:
+      type: object
+      properties:
+        CreatePolicyResult:
+          type: object
+          properties:
+            Policy:
+              $ref: '#/components/schemas/Policy'
+
+    GetPolicyResponse:
+      type: object
+      properties:
+        GetPolicyResult:
+          type: object
+          properties:
+            Policy:
+              $ref: '#/components/schemas/Policy'
+
+    ListPoliciesResponse:
+      type: object
+      properties:
+        ListPoliciesResult:
+          type: object
+          properties:
+            Policies:
+              type: array
+              items:
+                $ref: '#/components/schemas/Policy'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+
+    CreateGroupResponse:
+      type: object
+      properties:
+        CreateGroupResult:
+          type: object
+          properties:
+            Group:
+              $ref: '#/components/schemas/Group'
+
+    GetGroupResponse:
+      type: object
+      properties:
+        GetGroupResult:
+          type: object
+          properties:
+            Group:
+              $ref: '#/components/schemas/Group'
+            Users:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+
+    ListGroupsResponse:
+      type: object
+      properties:
+        ListGroupsResult:
+          type: object
+          properties:
+            Groups:
+              type: array
+              items:
+                $ref: '#/components/schemas/Group'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+
+    CreateAccessKeyResponse:
+      type: object
+      properties:
+        CreateAccessKeyResult:
+          type: object
+          properties:
+            AccessKey:
+              $ref: '#/components/schemas/AccessKey'
+
+    ListAccessKeysResponse:
+      type: object
+      properties:
+        ListAccessKeysResult:
+          type: object
+          properties:
+            AccessKeyMetadata:
+              type: array
+              items:
+                $ref: '#/components/schemas/AccessKey'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+
+  securitySchemes:
+    AWS4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+
+security:
+  - AWS4Auth: []
+
+tags:
+  - name: Users
+    description: Operations for managing IAM users
+  - name: Roles
+    description: Operations for managing IAM roles
+  - name: Policies
+    description: Operations for managing IAM policies
+  - name: Groups
+    description: Operations for managing IAM groups
+  - name: Access Keys
+    description: Operations for managing IAM access keys

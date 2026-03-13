@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.apis.guru/schemas/amazonaws.com/iam/user.json",
+  "title": "AWS IAM User",
+  "description": "Schema representing an AWS Identity and Access Management (IAM) user resource.",
+  "type": "object",
+  "properties": {
+    "Path": {
+      "type": "string",
+      "description": "The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide.",
+      "pattern": "^(/[A-Za-z0-9/_-]*)?/$",
+      "default": "/"
+    },
+    "UserName": {
+      "type": "string",
+      "description": "The friendly name identifying the user.",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[\\w+=,.@-]+$"
+    },
+    "UserId": {
+      "type": "string",
+      "description": "The stable and unique string identifying the user. For more information about IDs, see IAM identifiers in the IAM User Guide.",
+      "pattern": "^AIDA[A-Z0-9]+$"
+    },
+    "Arn": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) that identifies the user.",
+      "pattern": "^arn:aws:iam::\\d{12}:user(/[\\w+=,.@/-]+)+$"
+    },
+    "CreateDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time, in ISO 8601 date-time format, when the user was created."
+    },
+    "PasswordLastUsed": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "The date and time, in ISO 8601 date-time format, when the user's password was last used to sign in to an AWS website."
+    },
+    "PermissionsBoundary": {
+      "type": "object",
+      "description": "The ARN of the policy used to set the permissions boundary for the user.",
+      "properties": {
+        "PermissionsBoundaryType": {
+          "type": "string",
+          "enum": ["PermissionsBoundaryPolicy"],
+          "description": "The permissions boundary usage type."
+        },
+        "PermissionsBoundaryArn": {
+          "type": "string",
+          "description": "The ARN of the policy used to set the permissions boundary."
+        }
+      },
+      "required": ["PermissionsBoundaryType", "PermissionsBoundaryArn"]
+    },
+    "Tags": {
+      "type": "array",
+      "description": "A list of tags attached to the user.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string",
+            "description": "The key name for the tag.",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "Value": {
+            "type": "string",
+            "description": "The value associated with the tag.",
+            "maxLength": 256
+          }
+        },
+        "required": ["Key", "Value"]
+      },
+      "maxItems": 50
+    }
+  },
+  "required": ["UserName", "UserId", "Arn", "CreateDate"],
+  "additionalProperties": false
+}

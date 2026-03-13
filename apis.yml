@@ -1,0 +1,80 @@
+name: Amazon IAM API
+description: >-
+  Amazon Identity and Access Management (IAM) enables you to manage access to
+  AWS services and resources securely. Using IAM, you can create and manage AWS
+  users and groups, and use permissions to allow and deny their access to AWS
+  resources. IAM is a feature of your AWS account offered at no additional
+  charge.
+url: https://aws.amazon.com/iam/
+baseURL: https://iam.amazonaws.com
+tags:
+  - Identity
+  - Access Management
+  - Security
+  - Authentication
+  - Authorization
+  - AWS
+maintainer: Kin Lane
+properties:
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: OpenAPI
+    url: openapi/amazon-iam-openapi.yml
+  - type: OpenAPI
+    url: https://api.apis.guru/v2/specs/amazonaws.com/iam/2010-05-08/openapi.yaml
+  - type: JSONSchema
+    url: json-schema/amazon-iam-user-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-iam-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+    description: IAM is offered at no additional charge.
+  - type: Getting Started
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/
+  - type: API Reference
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: CLI Reference
+    url: https://docs.aws.amazon.com/cli/latest/reference/iam/
+  - type: Security
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/security.html
+common:
+  - type: Portal
+    url: https://aws.amazon.com/
+  - type: Website
+    url: https://aws.amazon.com/iam/
+  - type: Docs
+    url: https://docs.aws.amazon.com/
+  - type: Terms
+    url: https://aws.amazon.com/service-terms/
+  - type: Privacy
+    url: https://aws.amazon.com/privacy/
+  - type: Support
+    url: https://aws.amazon.com/support/
+  - type: Blog
+    url: https://aws.amazon.com/blogs/security/
+  - type: GitHub
+    url: https://github.com/aws
+  - type: Console
+    url: https://console.aws.amazon.com/iam/
+  - type: Sign Up
+    url: https://portal.aws.amazon.com/billing/signup
+  - type: Login
+    url: https://signin.aws.amazon.com/
+  - type: Status
+    url: https://health.aws.amazon.com/health/status
+  - type: Knowledge Center
+    url: https://repost.aws/knowledge-center
+  - type: YouTube
+    url: https://www.youtube.com/user/AmazonWebServices
+  - type: Stack Overflow
+    url: https://stackoverflow.com/questions/tagged/amazon-iam
+  - type: Contact
+    url: https://aws.amazon.com/contact-us/
+  - type: Security
+    url: https://aws.amazon.com/security/
+  - type: Compliance
+    url: https://aws.amazon.com/compliance/

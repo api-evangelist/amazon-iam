@@ -1,0 +1,193 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "iam": "https://docs.aws.amazon.com/IAM/latest/APIReference/",
+    "aws": "https://aws.amazon.com/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "User": {
+      "@id": "iam:API_User",
+      "@context": {
+        "UserName": {
+          "@id": "iam:User-UserName",
+          "@type": "xsd:string"
+        },
+        "UserId": {
+          "@id": "iam:User-UserId",
+          "@type": "xsd:string"
+        },
+        "Arn": {
+          "@id": "iam:User-Arn",
+          "@type": "@id"
+        },
+        "Path": {
+          "@id": "iam:User-Path",
+          "@type": "xsd:string"
+        },
+        "CreateDate": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "PasswordLastUsed": {
+          "@id": "iam:User-PasswordLastUsed",
+          "@type": "xsd:dateTime"
+        },
+        "Tags": {
+          "@id": "iam:User-Tags",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "Role": {
+      "@id": "iam:API_Role",
+      "@context": {
+        "RoleName": {
+          "@id": "iam:Role-RoleName",
+          "@type": "xsd:string"
+        },
+        "RoleId": {
+          "@id": "iam:Role-RoleId",
+          "@type": "xsd:string"
+        },
+        "Arn": {
+          "@id": "iam:Role-Arn",
+          "@type": "@id"
+        },
+        "Path": {
+          "@id": "iam:Role-Path",
+          "@type": "xsd:string"
+        },
+        "AssumeRolePolicyDocument": {
+          "@id": "iam:Role-AssumeRolePolicyDocument",
+          "@type": "xsd:string"
+        },
+        "Description": {
+          "@id": "dcterms:description",
+          "@type": "xsd:string"
+        },
+        "MaxSessionDuration": {
+          "@id": "iam:Role-MaxSessionDuration",
+          "@type": "xsd:integer"
+        },
+        "CreateDate": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "Tags": {
+          "@id": "iam:Role-Tags",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "Policy": {
+      "@id": "iam:API_Policy",
+      "@context": {
+        "PolicyName": {
+          "@id": "iam:Policy-PolicyName",
+          "@type": "xsd:string"
+        },
+        "PolicyId": {
+          "@id": "iam:Policy-PolicyId",
+          "@type": "xsd:string"
+        },
+        "Arn": {
+          "@id": "iam:Policy-Arn",
+          "@type": "@id"
+        },
+        "Path": {
+          "@id": "iam:Policy-Path",
+          "@type": "xsd:string"
+        },
+        "DefaultVersionId": {
+          "@id": "iam:Policy-DefaultVersionId",
+          "@type": "xsd:string"
+        },
+        "AttachmentCount": {
+          "@id": "iam:Policy-AttachmentCount",
+          "@type": "xsd:integer"
+        },
+        "IsAttachable": {
+          "@id": "iam:Policy-IsAttachable",
+          "@type": "xsd:boolean"
+        },
+        "Description": {
+          "@id": "dcterms:description",
+          "@type": "xsd:string"
+        },
+        "CreateDate": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "UpdateDate": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Group": {
+      "@id": "iam:API_Group",
+      "@context": {
+        "GroupName": {
+          "@id": "iam:Group-GroupName",
+          "@type": "xsd:string"
+        },
+        "GroupId": {
+          "@id": "iam:Group-GroupId",
+          "@type": "xsd:string"
+        },
+        "Arn": {
+          "@id": "iam:Group-Arn",
+          "@type": "@id"
+        },
+        "Path": {
+          "@id": "iam:Group-Path",
+          "@type": "xsd:string"
+        },
+        "CreateDate": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "AccessKey": {
+      "@id": "iam:API_AccessKey",
+      "@context": {
+        "AccessKeyId": {
+          "@id": "iam:AccessKey-AccessKeyId",
+          "@type": "xsd:string"
+        },
+        "Status": {
+          "@id": "iam:AccessKey-Status",
+          "@type": "xsd:string"
+        },
+        "UserName": {
+          "@id": "iam:AccessKey-UserName",
+          "@type": "xsd:string"
+        },
+        "CreateDate": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Tag": {
+      "@id": "iam:API_Tag",
+      "@context": {
+        "Key": {
+          "@id": "iam:Tag-Key",
+          "@type": "xsd:string"
+        },
+        "Value": {
+          "@id": "iam:Tag-Value",
+          "@type": "xsd:string"
+        }
+      }
+    }
+  }
+}
