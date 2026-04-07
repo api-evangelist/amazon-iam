@@ -1481,13 +1481,13 @@ security:
   - AWS4Auth: []
 
 tags:
-  - name: Users
-    description: Operations for managing IAM users
-  - name: Roles
-    description: Operations for managing IAM roles
-  - name: Policies
-    description: Operations for managing IAM policies
-  - name: Groups
-    description: Operations for managing IAM groups
   - name: Access Keys
     description: Operations for managing IAM access keys
+  - name: Groups
+    description: Operations for managing IAM groups
+  - name: Policies
+    description: Operations for managing IAM policies
+  - name: Roles
+    description: Operations for managing IAM roles
+  - name: Users
+    description: Operations for managing IAM users

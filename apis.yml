@@ -8,12 +8,12 @@ description: >-
 url: https://aws.amazon.com/iam/
 baseURL: https://iam.amazonaws.com
 tags:
-  - Identity
   - Access Management
-  - Security
   - Authentication
   - Authorization
   - AWS
+  - Identity
+  - Security
 maintainer: Kin Lane
 properties:
   - type: Documentation
