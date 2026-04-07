@@ -20,7 +20,7 @@ paths:
   /?Action=CreateUser:
     get:
       operationId: CreateUser
-      summary: Create a new IAM user
+      summary: Amazon IAM Create a new IAM user
       description: Creates a new IAM user for your AWS account.
       parameters:
         - name: Action
@@ -71,7 +71,7 @@ paths:
   /?Action=GetUser:
     get:
       operationId: GetUser
-      summary: Get information about an IAM user
+      summary: Amazon IAM Get information about an IAM user
       description: >-
         Retrieves information about the specified IAM user, including the
         user's creation date, path, unique ID, and ARN.
@@ -111,7 +111,7 @@ paths:
   /?Action=ListUsers:
     get:
       operationId: ListUsers
-      summary: List IAM users
+      summary: Amazon IAM List IAM users
       description: Lists the IAM users that have the specified path prefix.
       parameters:
         - name: Action
@@ -157,7 +157,7 @@ paths:
   /?Action=UpdateUser:
     get:
       operationId: UpdateUser
-      summary: Update an IAM user
+      summary: Amazon IAM Update an IAM user
       description: Updates the name and/or the path of the specified IAM user.
       parameters:
         - name: Action
@@ -202,7 +202,7 @@ paths:
   /?Action=DeleteUser:
     get:
       operationId: DeleteUser
-      summary: Delete an IAM user
+      summary: Amazon IAM Delete an IAM user
       description: Deletes the specified IAM user.
       parameters:
         - name: Action
@@ -237,7 +237,7 @@ paths:
   /?Action=CreateRole:
     get:
       operationId: CreateRole
-      summary: Create a new IAM role
+      summary: Amazon IAM Create a new IAM role
       description: Creates a new role for your AWS account.
       parameters:
         - name: Action
@@ -300,7 +300,7 @@ paths:
   /?Action=GetRole:
     get:
       operationId: GetRole
-      summary: Get information about an IAM role
+      summary: Amazon IAM Get information about an IAM role
       description: >-
         Retrieves information about the specified role, including the role's
         path, GUID, ARN, and the trust policy.
@@ -339,7 +339,7 @@ paths:
   /?Action=ListRoles:
     get:
       operationId: ListRoles
-      summary: List IAM roles
+      summary: Amazon IAM List IAM roles
       description: Lists the IAM roles that have the specified path prefix.
       parameters:
         - name: Action
@@ -383,7 +383,7 @@ paths:
   /?Action=DeleteRole:
     get:
       operationId: DeleteRole
-      summary: Delete an IAM role
+      summary: Amazon IAM Delete an IAM role
       description: Deletes the specified role.
       parameters:
         - name: Action
@@ -418,7 +418,7 @@ paths:
   /?Action=AssumeRole:
     get:
       operationId: AssumeRole
-      summary: Assume an IAM role
+      summary: Amazon IAM Assume an IAM role
       description: >-
         Returns a set of temporary security credentials that you can use to
         access AWS resources. Uses the AWS STS service.
@@ -473,7 +473,7 @@ paths:
   /?Action=CreatePolicy:
     get:
       operationId: CreatePolicy
-      summary: Create a new IAM policy
+      summary: Amazon IAM Create a new IAM policy
       description: Creates a new managed policy for your AWS account.
       parameters:
         - name: Action
@@ -529,7 +529,7 @@ paths:
   /?Action=GetPolicy:
     get:
       operationId: GetPolicy
-      summary: Get information about an IAM policy
+      summary: Amazon IAM Get information about an IAM policy
       description: >-
         Retrieves information about the specified managed policy, including
         the policy's default version and the total number of IAM entities
@@ -569,7 +569,7 @@ paths:
   /?Action=ListPolicies:
     get:
       operationId: ListPolicies
-      summary: List IAM policies
+      summary: Amazon IAM List IAM policies
       description: >-
         Lists all the managed policies that are available in your AWS account.
       parameters:
@@ -627,7 +627,7 @@ paths:
   /?Action=AttachUserPolicy:
     get:
       operationId: AttachUserPolicy
-      summary: Attach a managed policy to a user
+      summary: Amazon IAM Attach a managed policy to a user
       description: Attaches the specified managed policy to the specified user.
       parameters:
         - name: Action
@@ -666,7 +666,7 @@ paths:
   /?Action=AttachRolePolicy:
     get:
       operationId: AttachRolePolicy
-      summary: Attach a managed policy to a role
+      summary: Amazon IAM Attach a managed policy to a role
       description: Attaches the specified managed policy to the specified IAM role.
       parameters:
         - name: Action
@@ -705,7 +705,7 @@ paths:
   /?Action=DetachUserPolicy:
     get:
       operationId: DetachUserPolicy
-      summary: Detach a managed policy from a user
+      summary: Amazon IAM Detach a managed policy from a user
       description: Removes the specified managed policy from the specified user.
       parameters:
         - name: Action
@@ -744,7 +744,7 @@ paths:
   /?Action=DetachRolePolicy:
     get:
       operationId: DetachRolePolicy
-      summary: Detach a managed policy from a role
+      summary: Amazon IAM Detach a managed policy from a role
       description: Removes the specified managed policy from the specified role.
       parameters:
         - name: Action
@@ -783,7 +783,7 @@ paths:
   /?Action=CreateGroup:
     get:
       operationId: CreateGroup
-      summary: Create a new IAM group
+      summary: Amazon IAM Create a new IAM group
       description: Creates a new group.
       parameters:
         - name: Action
@@ -827,7 +827,7 @@ paths:
   /?Action=GetGroup:
     get:
       operationId: GetGroup
-      summary: Get information about an IAM group
+      summary: Amazon IAM Get information about an IAM group
       description: Returns a list of IAM users that are in the specified IAM group.
       parameters:
         - name: Action
@@ -874,7 +874,7 @@ paths:
   /?Action=ListGroups:
     get:
       operationId: ListGroups
-      summary: List IAM groups
+      summary: Amazon IAM List IAM groups
       description: Lists the IAM groups that have the specified path prefix.
       parameters:
         - name: Action
@@ -917,7 +917,7 @@ paths:
   /?Action=AddUserToGroup:
     get:
       operationId: AddUserToGroup
-      summary: Add a user to an IAM group
+      summary: Amazon IAM Add a user to an IAM group
       description: Adds the specified user to the specified group.
       parameters:
         - name: Action
@@ -956,7 +956,7 @@ paths:
   /?Action=RemoveUserFromGroup:
     get:
       operationId: RemoveUserFromGroup
-      summary: Remove a user from an IAM group
+      summary: Amazon IAM Remove a user from an IAM group
       description: Removes the specified user from the specified group.
       parameters:
         - name: Action
@@ -995,7 +995,7 @@ paths:
   /?Action=CreateAccessKey:
     get:
       operationId: CreateAccessKey
-      summary: Create a new access key
+      summary: Amazon IAM Create a new access key
       description: >-
         Creates a new AWS secret access key and corresponding AWS access key
         ID for the specified user.
@@ -1035,7 +1035,7 @@ paths:
   /?Action=ListAccessKeys:
     get:
       operationId: ListAccessKeys
-      summary: List access keys for a user
+      summary: Amazon IAM List access keys for a user
       description: >-
         Returns information about the access key IDs associated with the
         specified IAM user.
@@ -1083,7 +1083,7 @@ paths:
   /?Action=DeleteAccessKey:
     get:
       operationId: DeleteAccessKey
-      summary: Delete an access key
+      summary: Amazon IAM Delete an access key
       description: >-
         Deletes the access key pair associated with the specified IAM user.
       parameters:
