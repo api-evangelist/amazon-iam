@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-policy-schema.json",
+  "title": "Policy",
+  "description": "Policy schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "PolicyName": {
+      "type": "string",
+      "description": "The friendly name identifying the policy."
+    },
+    "PolicyId": {
+      "type": "string",
+      "description": "The stable and unique string identifying the policy."
+    },
+    "Arn": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) of the policy."
+    },
+    "Path": {
+      "type": "string",
+      "description": "The path to the policy."
+    },
+    "DefaultVersionId": {
+      "type": "string",
+      "description": "The identifier for the version of the policy that is the default."
+    },
+    "AttachmentCount": {
+      "type": "integer",
+      "description": "The number of entities the policy is attached to."
+    },
+    "IsAttachable": {
+      "type": "boolean",
+      "description": "Specifies whether the policy can be attached."
+    },
+    "Description": {
+      "type": "string",
+      "description": "A description of the policy."
+    },
+    "CreateDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the policy was created."
+    },
+    "UpdateDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the policy was last updated."
+    }
+  },
+  "required": [
+    "PolicyName",
+    "PolicyId",
+    "Arn",
+    "CreateDate"
+  ]
+}

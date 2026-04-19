@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-list-users-response-schema.json",
+  "title": "ListUsersResponse",
+  "description": "ListUsersResponse schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "ListUsersResult": {
+      "type": "object",
+      "properties": {
+        "Users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "IsTruncated": {
+          "type": "boolean"
+        },
+        "Marker": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-tag-schema.json",
+  "title": "Tag",
+  "description": "Tag schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "Key": {
+      "type": "string",
+      "description": "The key name for the tag.",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "Value": {
+      "type": "string",
+      "description": "The value for the tag.",
+      "maxLength": 256
+    }
+  },
+  "required": [
+    "Key",
+    "Value"
+  ]
+}

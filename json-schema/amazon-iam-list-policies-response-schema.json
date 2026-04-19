@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-list-policies-response-schema.json",
+  "title": "ListPoliciesResponse",
+  "description": "ListPoliciesResponse schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "ListPoliciesResult": {
+      "type": "object",
+      "properties": {
+        "Policies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Policy"
+          }
+        },
+        "IsTruncated": {
+          "type": "boolean"
+        },
+        "Marker": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

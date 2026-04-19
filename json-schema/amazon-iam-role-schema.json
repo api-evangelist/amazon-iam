@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-role-schema.json",
+  "title": "Role",
+  "description": "Role schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "Path": {
+      "type": "string",
+      "description": "The path to the role."
+    },
+    "RoleName": {
+      "type": "string",
+      "description": "The friendly name that identifies the role."
+    },
+    "RoleId": {
+      "type": "string",
+      "description": "The stable and unique string identifying the role."
+    },
+    "Arn": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) specifying the role."
+    },
+    "CreateDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the role was created."
+    },
+    "AssumeRolePolicyDocument": {
+      "type": "string",
+      "description": "The policy that grants an entity permission to assume the role."
+    },
+    "Description": {
+      "type": "string",
+      "description": "A description of the role."
+    },
+    "MaxSessionDuration": {
+      "type": "integer",
+      "description": "The maximum session duration (in seconds) for the specified role."
+    },
+    "Tags": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Tag"
+      }
+    }
+  },
+  "required": [
+    "RoleName",
+    "RoleId",
+    "Arn",
+    "CreateDate",
+    "AssumeRolePolicyDocument"
+  ]
+}

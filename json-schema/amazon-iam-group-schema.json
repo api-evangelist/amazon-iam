@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-group-schema.json",
+  "title": "Group",
+  "description": "Group schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "Path": {
+      "type": "string",
+      "description": "The path to the group."
+    },
+    "GroupName": {
+      "type": "string",
+      "description": "The friendly name that identifies the group."
+    },
+    "GroupId": {
+      "type": "string",
+      "description": "The stable and unique string identifying the group."
+    },
+    "Arn": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) specifying the group."
+    },
+    "CreateDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the group was created."
+    }
+  },
+  "required": [
+    "GroupName",
+    "GroupId",
+    "Arn",
+    "CreateDate"
+  ]
+}

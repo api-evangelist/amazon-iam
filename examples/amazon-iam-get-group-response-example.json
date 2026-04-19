@@ -1,0 +1,11 @@
+{
+  "GetGroupResult": {
+    "Group": "example-value",
+    "Users": [
+      "example-value",
+      "example-value"
+    ],
+    "IsTruncated": true,
+    "Marker": "example-value"
+  }
+}

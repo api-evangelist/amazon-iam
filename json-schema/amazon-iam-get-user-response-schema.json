@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-get-user-response-schema.json",
+  "title": "GetUserResponse",
+  "description": "GetUserResponse schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "GetUserResult": {
+      "type": "object",
+      "properties": {
+        "User": {
+          "$ref": "#/components/schemas/User"
+        }
+      }
+    }
+  }
+}

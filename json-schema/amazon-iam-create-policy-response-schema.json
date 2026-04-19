@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-create-policy-response-schema.json",
+  "title": "CreatePolicyResponse",
+  "description": "CreatePolicyResponse schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "CreatePolicyResult": {
+      "type": "object",
+      "properties": {
+        "Policy": {
+          "$ref": "#/components/schemas/Policy"
+        }
+      }
+    }
+  }
+}

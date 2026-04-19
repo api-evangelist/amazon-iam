@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-structure/amazon-iam-get-policy-response-structure.json",
+  "name": "GetPolicyResponse",
+  "description": "GetPolicyResponse schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "GetPolicyResult": {
+      "type": "object",
+      "properties": {
+        "Policy": {
+          "$ref": "#/components/schemas/Policy"
+        }
+      }
+    }
+  }
+}

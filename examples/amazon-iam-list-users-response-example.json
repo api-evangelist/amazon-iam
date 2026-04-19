@@ -1,0 +1,10 @@
+{
+  "ListUsersResult": {
+    "Users": [
+      "example-value",
+      "example-value"
+    ],
+    "IsTruncated": true,
+    "Marker": "example-value"
+  }
+}

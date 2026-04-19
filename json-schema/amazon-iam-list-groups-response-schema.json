@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-list-groups-response-schema.json",
+  "title": "ListGroupsResponse",
+  "description": "ListGroupsResponse schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "ListGroupsResult": {
+      "type": "object",
+      "properties": {
+        "Groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Group"
+          }
+        },
+        "IsTruncated": {
+          "type": "boolean"
+        },
+        "Marker": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

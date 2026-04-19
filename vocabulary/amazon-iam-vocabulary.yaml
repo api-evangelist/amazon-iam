@@ -1,0 +1,123 @@
+vocabulary: "1.0.0"
+info:
+  provider: Amazon IAM
+  description: Vocabulary for AWS Identity and Access Management covering users, roles, groups, policies, and access key management.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+operational:
+  apis:
+    - namespace: iam
+      version: "2010-05-08"
+      baseUrl: https://iam.amazonaws.com
+      status: active
+  resources:
+    - name: users
+      api: iam
+      actions: [list, create, delete, get, update]
+    - name: roles
+      api: iam
+      actions: [list, create, delete, get, update]
+    - name: groups
+      api: iam
+      actions: [list, create, delete, get, update]
+    - name: policies
+      api: iam
+      actions: [list, create, delete, get, update, attach, detach]
+    - name: access-keys
+      api: iam
+      actions: [list, create, delete, update]
+    - name: instance-profiles
+      api: iam
+      actions: [list, create, delete, get]
+    - name: mfa-devices
+      api: iam
+      actions: [list, enable, deactivate]
+  actions:
+    - name: list
+      methods: [GET]
+      pattern: read
+    - name: get
+      methods: [GET]
+      pattern: read
+    - name: create
+      methods: [POST]
+      pattern: write
+    - name: delete
+      methods: [DELETE]
+      pattern: destructive
+    - name: update
+      methods: [PUT, PATCH, POST]
+      pattern: write
+    - name: attach
+      methods: [PUT, POST]
+      pattern: write
+    - name: detach
+      methods: [DELETE]
+      pattern: destructive
+    - name: enable
+      methods: [POST]
+      pattern: write
+    - name: deactivate
+      methods: [POST]
+      pattern: write
+  enums:
+    user-status:
+      - Active
+      - Inactive
+    policy-type:
+      - AWS managed
+      - Customer managed
+      - Inline
+    access-key-status:
+      - Active
+      - Inactive
+  authentication:
+    schemes:
+      - type: AWS Signature Version 4
+        placement: header
+capability:
+  workflows:
+    - name: IAM Access Management
+      file: capabilities/iam-access-management.yaml
+      apis: [iam]
+      toolCount: 10
+      personas: [Cloud Administrator, Security Engineer]
+  personas:
+    - id: cloud-administrator
+      name: Cloud Administrator
+      description: Manages IAM users, roles, and policies for AWS account governance
+    - id: security-engineer
+      name: Security Engineer
+      description: Reviews and audits IAM configurations for security compliance
+  domains:
+    - name: Identity Management
+      description: Creating and managing AWS user identities
+    - name: Access Control
+      description: Defining and enforcing what users and services can do
+    - name: Policy Management
+      description: Creating and attaching permission policies
+  namespaces:
+    - name: iam
+      type: consumed
+    - name: iam-access-api
+      type: rest
+      port: 8080
+    - name: iam-access-mcp
+      type: mcp
+      port: 9090
+  binds:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+crossReference:
+  - resource: users
+    operations: [listUsers, createUser, deleteUser, getUser]
+    workflows: [IAM Access Management]
+    personas: [Cloud Administrator]
+  - resource: roles
+    operations: [listRoles, createRole, deleteRole, getRole]
+    workflows: [IAM Access Management]
+    personas: [Cloud Administrator, Security Engineer]
+  - resource: policies
+    operations: [listPolicies, createPolicy, attachPolicy, detachPolicy]
+    workflows: [IAM Access Management]
+    personas: [Cloud Administrator, Security Engineer]

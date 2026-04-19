@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-structure/amazon-iam-create-access-key-response-structure.json",
+  "name": "CreateAccessKeyResponse",
+  "description": "CreateAccessKeyResponse schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "CreateAccessKeyResult": {
+      "type": "object",
+      "properties": {
+        "AccessKey": {
+          "$ref": "#/components/schemas/AccessKey"
+        }
+      }
+    }
+  }
+}

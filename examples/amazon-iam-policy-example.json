@@ -1,0 +1,12 @@
+{
+  "PolicyName": "example-user",
+  "PolicyId": "AKIAIOSFODNN7EXAMPLE",
+  "Arn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "Path": "/example/",
+  "DefaultVersionId": "AKIAIOSFODNN7EXAMPLE",
+  "AttachmentCount": 29,
+  "IsAttachable": true,
+  "Description": "example-value",
+  "CreateDate": "2025-03-15T14:30:00Z",
+  "UpdateDate": "2025-03-15T14:30:00Z"
+}

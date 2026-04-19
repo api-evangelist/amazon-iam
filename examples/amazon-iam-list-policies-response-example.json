@@ -1,0 +1,10 @@
+{
+  "ListPoliciesResult": {
+    "Policies": [
+      "example-value",
+      "example-value"
+    ],
+    "IsTruncated": true,
+    "Marker": "example-value"
+  }
+}

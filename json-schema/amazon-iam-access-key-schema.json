@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-access-key-schema.json",
+  "title": "AccessKey",
+  "description": "AccessKey schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "UserName": {
+      "type": "string",
+      "description": "The name of the IAM user the access key is associated with."
+    },
+    "AccessKeyId": {
+      "type": "string",
+      "description": "The ID for this access key."
+    },
+    "Status": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "Inactive"
+      ],
+      "description": "The status of the access key."
+    },
+    "SecretAccessKey": {
+      "type": "string",
+      "description": "The secret key used to sign requests. Only returned on creation."
+    },
+    "CreateDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date when the access key was created."
+    }
+  },
+  "required": [
+    "UserName",
+    "AccessKeyId",
+    "Status"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-get-role-response-schema.json",
+  "title": "GetRoleResponse",
+  "description": "GetRoleResponse schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "GetRoleResult": {
+      "type": "object",
+      "properties": {
+        "Role": {
+          "$ref": "#/components/schemas/Role"
+        }
+      }
+    }
+  }
+}

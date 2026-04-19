@@ -1,0 +1,7 @@
+{
+  "Path": "/example/",
+  "GroupName": "example-user",
+  "GroupId": "AKIAIOSFODNN7EXAMPLE",
+  "Arn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "CreateDate": "2025-03-15T14:30:00Z"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-structure/amazon-iam-create-group-response-structure.json",
+  "name": "CreateGroupResponse",
+  "description": "CreateGroupResponse schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "CreateGroupResult": {
+      "type": "object",
+      "properties": {
+        "Group": {
+          "$ref": "#/components/schemas/Group"
+        }
+      }
+    }
+  }
+}

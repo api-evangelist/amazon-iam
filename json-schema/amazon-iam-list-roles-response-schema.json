@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/json-schema/amazon-iam-list-roles-response-schema.json",
+  "title": "ListRolesResponse",
+  "description": "ListRolesResponse schema from AWS IAM API",
+  "type": "object",
+  "properties": {
+    "ListRolesResult": {
+      "type": "object",
+      "properties": {
+        "Roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Role"
+          }
+        },
+        "IsTruncated": {
+          "type": "boolean"
+        },
+        "Marker": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

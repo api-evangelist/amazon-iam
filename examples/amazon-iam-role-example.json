@@ -1,0 +1,14 @@
+{
+  "Path": "/example/",
+  "RoleName": "example-user",
+  "RoleId": "AKIAIOSFODNN7EXAMPLE",
+  "Arn": "arn:aws:iam::123456789012:role/ExampleRole",
+  "CreateDate": "2025-03-15T14:30:00Z",
+  "AssumeRolePolicyDocument": "example-value",
+  "Description": "example-value",
+  "MaxSessionDuration": 79,
+  "Tags": [
+    "example-value",
+    "example-value"
+  ]
+}

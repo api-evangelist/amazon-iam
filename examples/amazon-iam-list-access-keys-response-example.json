@@ -1,0 +1,10 @@
+{
+  "ListAccessKeysResult": {
+    "AccessKeyMetadata": [
+      "example-value",
+      "example-value"
+    ],
+    "IsTruncated": true,
+    "Marker": "example-value"
+  }
+}
