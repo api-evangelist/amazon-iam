@@ -1,173 +1,242 @@
-naftiko: "1.0.0-alpha1"
+naftiko: 1.0.0-alpha2
 info:
   label: Amazon IAM - Access Management
-  description: Unified capability for cloud administrators to manage IAM users, roles, groups, and policies for AWS account access control and security governance.
+  description: Unified capability for cloud administrators to manage IAM users, roles, groups, and policies for AWS account
+    access control and security governance.
   tags:
-    - AWS
-    - IAM
-    - Security
-    - Access Control
-    - Identity
-    - Policy Management
-  created: "2026-04-19"
-  modified: "2026-04-19"
+  - AWS
+  - IAM
+  - Security
+  - Access Control
+  - Identity
+  - Policy Management
+  created: '2026-04-19'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
-      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+- namespace: env
+  keys:
+    AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
 capability:
   consumes:
-    - import: iam
-      location: ./shared/iam.yaml
+  - type: http
+    namespace: iam
+    baseUri: https://iam.amazonaws.com
+    description: AWS IAM REST API
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{AWS_ACCESS_KEY_ID}}'
+      placement: header
+    resources:
+    - name: users
+      path: /users
+      description: IAM users
+      operations:
+      - name: list-users
+        method: GET
+        description: List IAM users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-user
+        method: POST
+        description: Create an IAM user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: roles
+      path: /roles
+      description: IAM roles
+      operations:
+      - name: list-roles
+        method: GET
+        description: List IAM roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-role
+        method: POST
+        description: Create an IAM role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: policies
+      path: /policies
+      description: IAM policies
+      operations:
+      - name: list-policies
+        method: GET
+        description: List IAM policies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-policy
+        method: POST
+        description: Create an IAM policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8080
-      namespace: iam-access-api
-      description: Unified REST API for IAM access management.
-      resources:
-        - path: /v1/users
-          name: users
-          description: Manage IAM users
-          operations:
-            - method: GET
-              name: list-users
-              description: List all IAM users
-              call: "iam.list-users"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: create-user
-              description: Create a new IAM user
-              call: "iam.create-user"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/roles
-          name: roles
-          description: Manage IAM roles
-          operations:
-            - method: GET
-              name: list-roles
-              description: List all IAM roles
-              call: "iam.list-roles"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: create-role
-              description: Create a new IAM role
-              call: "iam.create-role"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/policies
-          name: policies
-          description: Manage IAM policies
-          operations:
-            - method: GET
-              name: list-policies
-              description: List all IAM policies
-              call: "iam.list-policies"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: create-policy
-              description: Create a new IAM policy
-              call: "iam.create-policy"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-    - type: mcp
-      port: 9090
-      namespace: iam-access-mcp
-      transport: http
-      description: MCP server for AI-assisted IAM access management.
-      tools:
-        - name: list-users
-          description: List all IAM users in the account
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "iam.list-users"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: create-user
-          description: Create a new IAM user with the specified username
-          hints:
-            readOnly: false
-          call: "iam.create-user"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: delete-user
-          description: Delete an IAM user from the account
-          hints:
-            readOnly: false
-            destructive: true
-          call: "iam.delete-user"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-roles
-          description: List all IAM roles in the account
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "iam.list-roles"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: create-role
-          description: Create a new IAM role with a trust policy
-          hints:
-            readOnly: false
-          call: "iam.create-role"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-policies
-          description: List IAM policies available for attachment
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "iam.list-policies"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: create-policy
-          description: Create a new IAM policy with specified permissions
-          hints:
-            readOnly: false
-          call: "iam.create-policy"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: attach-user-policy
-          description: Attach a managed policy to an IAM user
-          hints:
-            readOnly: false
-          call: "iam.attach-user-policy"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: attach-role-policy
-          description: Attach a managed policy to an IAM role
-          hints:
-            readOnly: false
-          call: "iam.attach-role-policy"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-access-keys
-          description: List access keys for an IAM user
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "iam.list-access-keys"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8080
+    namespace: iam-access-api
+    description: Unified REST API for IAM access management.
+    resources:
+    - path: /v1/users
+      name: users
+      description: Manage IAM users
+      operations:
+      - method: GET
+        name: list-users
+        description: List all IAM users
+        call: iam.list-users
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create-user
+        description: Create a new IAM user
+        call: iam.create-user
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/roles
+      name: roles
+      description: Manage IAM roles
+      operations:
+      - method: GET
+        name: list-roles
+        description: List all IAM roles
+        call: iam.list-roles
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create-role
+        description: Create a new IAM role
+        call: iam.create-role
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/policies
+      name: policies
+      description: Manage IAM policies
+      operations:
+      - method: GET
+        name: list-policies
+        description: List all IAM policies
+        call: iam.list-policies
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create-policy
+        description: Create a new IAM policy
+        call: iam.create-policy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: iam-access-mcp
+    transport: http
+    description: MCP server for AI-assisted IAM access management.
+    tools:
+    - name: list-users
+      description: List all IAM users in the account
+      hints:
+        readOnly: true
+        openWorld: true
+      call: iam.list-users
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-user
+      description: Create a new IAM user with the specified username
+      hints:
+        readOnly: false
+      call: iam.create-user
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-user
+      description: Delete an IAM user from the account
+      hints:
+        readOnly: false
+        destructive: true
+      call: iam.delete-user
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-roles
+      description: List all IAM roles in the account
+      hints:
+        readOnly: true
+        openWorld: true
+      call: iam.list-roles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-role
+      description: Create a new IAM role with a trust policy
+      hints:
+        readOnly: false
+      call: iam.create-role
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-policies
+      description: List IAM policies available for attachment
+      hints:
+        readOnly: true
+        openWorld: true
+      call: iam.list-policies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-policy
+      description: Create a new IAM policy with specified permissions
+      hints:
+        readOnly: false
+      call: iam.create-policy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: attach-user-policy
+      description: Attach a managed policy to an IAM user
+      hints:
+        readOnly: false
+      call: iam.attach-user-policy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: attach-role-policy
+      description: Attach a managed policy to an IAM role
+      hints:
+        readOnly: false
+      call: iam.attach-role-policy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-access-keys
+      description: List access keys for an IAM user
+      hints:
+        readOnly: true
+        openWorld: true
+      call: iam.list-access-keys
+      outputParameters:
+      - type: object
+        mapping: $.
