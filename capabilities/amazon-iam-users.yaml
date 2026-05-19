@@ -1,0 +1,345 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon IAM API — Users
+  description: 'Amazon IAM API — Users. 5 operations. Lead operation: Amazon IAM Create a New IAM User. Self-contained Naftiko
+    capability covering one Amazon Iam business surface.'
+  tags:
+  - Amazon Iam
+  - Users
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_IAM_API_KEY: AMAZON_IAM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-iam-users
+    baseUri: https://iam.amazonaws.com
+    description: Amazon IAM API — Users business capability. Self-contained, no shared references.
+    resources:
+    - name: ?Action=CreateUser
+      path: /?Action=CreateUser
+      operations:
+      - name: createuser
+        method: GET
+        description: Amazon IAM Create a New IAM User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Action
+          in: query
+          type: string
+          required: true
+        - name: Version
+          in: query
+          type: string
+          required: true
+        - name: UserName
+          in: query
+          type: string
+          description: The name of the user to create.
+          required: true
+        - name: Path
+          in: query
+          type: string
+          description: The path for the user name.
+        - name: Tags.member.N
+          in: query
+          type: string
+          description: Tags to attach to the user.
+    - name: ?Action=DeleteUser
+      path: /?Action=DeleteUser
+      operations:
+      - name: deleteuser
+        method: GET
+        description: Amazon IAM Delete an IAM User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Action
+          in: query
+          type: string
+          required: true
+        - name: Version
+          in: query
+          type: string
+          required: true
+        - name: UserName
+          in: query
+          type: string
+          description: The name of the user to delete.
+          required: true
+    - name: ?Action=GetUser
+      path: /?Action=GetUser
+      operations:
+      - name: getuser
+        method: GET
+        description: Amazon IAM Get Information About an IAM User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Action
+          in: query
+          type: string
+          required: true
+        - name: Version
+          in: query
+          type: string
+          required: true
+        - name: UserName
+          in: query
+          type: string
+          description: The name of the user to retrieve. If not specified, the user name is determined from the access key
+            used.
+    - name: ?Action=ListUsers
+      path: /?Action=ListUsers
+      operations:
+      - name: listusers
+        method: GET
+        description: Amazon IAM List IAM Users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Action
+          in: query
+          type: string
+          required: true
+        - name: Version
+          in: query
+          type: string
+          required: true
+        - name: PathPrefix
+          in: query
+          type: string
+          description: The path prefix for filtering the results.
+        - name: Marker
+          in: query
+          type: string
+          description: Pagination marker from a previous response.
+        - name: MaxItems
+          in: query
+          type: integer
+          description: Maximum number of items to return.
+    - name: ?Action=UpdateUser
+      path: /?Action=UpdateUser
+      operations:
+      - name: updateuser
+        method: GET
+        description: Amazon IAM Update an IAM User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Action
+          in: query
+          type: string
+          required: true
+        - name: Version
+          in: query
+          type: string
+          required: true
+        - name: UserName
+          in: query
+          type: string
+          description: Name of the user to update.
+          required: true
+        - name: NewUserName
+          in: query
+          type: string
+          description: New name for the user.
+        - name: NewPath
+          in: query
+          type: string
+          description: New path for the user.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_IAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-iam-users-rest
+    port: 8080
+    description: REST adapter for Amazon IAM API — Users. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/action-createuser
+      name: action-createuser
+      description: REST surface for ?Action=CreateUser.
+      operations:
+      - method: GET
+        name: createuser
+        description: Amazon IAM Create a New IAM User
+        call: amazon-iam-users.createuser
+        with:
+          Action: rest.Action
+          Version: rest.Version
+          UserName: rest.UserName
+          Path: rest.Path
+          Tags.member.N: rest.Tags.member.N
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-deleteuser
+      name: action-deleteuser
+      description: REST surface for ?Action=DeleteUser.
+      operations:
+      - method: GET
+        name: deleteuser
+        description: Amazon IAM Delete an IAM User
+        call: amazon-iam-users.deleteuser
+        with:
+          Action: rest.Action
+          Version: rest.Version
+          UserName: rest.UserName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-getuser
+      name: action-getuser
+      description: REST surface for ?Action=GetUser.
+      operations:
+      - method: GET
+        name: getuser
+        description: Amazon IAM Get Information About an IAM User
+        call: amazon-iam-users.getuser
+        with:
+          Action: rest.Action
+          Version: rest.Version
+          UserName: rest.UserName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-listusers
+      name: action-listusers
+      description: REST surface for ?Action=ListUsers.
+      operations:
+      - method: GET
+        name: listusers
+        description: Amazon IAM List IAM Users
+        call: amazon-iam-users.listusers
+        with:
+          Action: rest.Action
+          Version: rest.Version
+          PathPrefix: rest.PathPrefix
+          Marker: rest.Marker
+          MaxItems: rest.MaxItems
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-updateuser
+      name: action-updateuser
+      description: REST surface for ?Action=UpdateUser.
+      operations:
+      - method: GET
+        name: updateuser
+        description: Amazon IAM Update an IAM User
+        call: amazon-iam-users.updateuser
+        with:
+          Action: rest.Action
+          Version: rest.Version
+          UserName: rest.UserName
+          NewUserName: rest.NewUserName
+          NewPath: rest.NewPath
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-iam-users-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon IAM API — Users. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: amazon-iam-create-new-iam
+      description: Amazon IAM Create a New IAM User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-users.createuser
+      with:
+        Action: tools.Action
+        Version: tools.Version
+        UserName: tools.UserName
+        Path: tools.Path
+        Tags.member.N: tools.Tags.member.N
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-delete-iam-user
+      description: Amazon IAM Delete an IAM User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-users.deleteuser
+      with:
+        Action: tools.Action
+        Version: tools.Version
+        UserName: tools.UserName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-get-information-about
+      description: Amazon IAM Get Information About an IAM User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-users.getuser
+      with:
+        Action: tools.Action
+        Version: tools.Version
+        UserName: tools.UserName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-list-iam-users
+      description: Amazon IAM List IAM Users
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-users.listusers
+      with:
+        Action: tools.Action
+        Version: tools.Version
+        PathPrefix: tools.PathPrefix
+        Marker: tools.Marker
+        MaxItems: tools.MaxItems
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-update-iam-user
+      description: Amazon IAM Update an IAM User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-users.updateuser
+      with:
+        Action: tools.Action
+        Version: tools.Version
+        UserName: tools.UserName
+        NewUserName: tools.NewUserName
+        NewPath: tools.NewPath
+      outputParameters:
+      - type: object
+        mapping: $.

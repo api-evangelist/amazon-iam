@@ -1,0 +1,216 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon IAM API — Access Keys
+  description: 'Amazon IAM API — Access Keys. 3 operations. Lead operation: Amazon IAM Create a New Access Key. Self-contained
+    Naftiko capability covering one Amazon Iam business surface.'
+  tags:
+  - Amazon Iam
+  - Access Keys
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_IAM_API_KEY: AMAZON_IAM_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-iam-access-keys
+    baseUri: https://iam.amazonaws.com
+    description: Amazon IAM API — Access Keys business capability. Self-contained, no shared references.
+    resources:
+    - name: ?Action=CreateAccessKey
+      path: /?Action=CreateAccessKey
+      operations:
+      - name: createaccesskey
+        method: GET
+        description: Amazon IAM Create a New Access Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Action
+          in: query
+          type: string
+          required: true
+        - name: Version
+          in: query
+          type: string
+          required: true
+        - name: UserName
+          in: query
+          type: string
+          description: The name of the IAM user for the new key. If not specified, uses the calling user.
+    - name: ?Action=DeleteAccessKey
+      path: /?Action=DeleteAccessKey
+      operations:
+      - name: deleteaccesskey
+        method: GET
+        description: Amazon IAM Delete an Access Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Action
+          in: query
+          type: string
+          required: true
+        - name: Version
+          in: query
+          type: string
+          required: true
+        - name: UserName
+          in: query
+          type: string
+          description: The name of the user whose access key you want to delete.
+        - name: AccessKeyId
+          in: query
+          type: string
+          description: The access key ID for the access key to delete.
+          required: true
+    - name: ?Action=ListAccessKeys
+      path: /?Action=ListAccessKeys
+      operations:
+      - name: listaccesskeys
+        method: GET
+        description: Amazon IAM List Access Keys for a User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Action
+          in: query
+          type: string
+          required: true
+        - name: Version
+          in: query
+          type: string
+          required: true
+        - name: UserName
+          in: query
+          type: string
+          description: The name of the user.
+        - name: Marker
+          in: query
+          type: string
+        - name: MaxItems
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_IAM_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-iam-access-keys-rest
+    port: 8080
+    description: REST adapter for Amazon IAM API — Access Keys. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/action-createaccesskey
+      name: action-createaccesskey
+      description: REST surface for ?Action=CreateAccessKey.
+      operations:
+      - method: GET
+        name: createaccesskey
+        description: Amazon IAM Create a New Access Key
+        call: amazon-iam-access-keys.createaccesskey
+        with:
+          Action: rest.Action
+          Version: rest.Version
+          UserName: rest.UserName
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-deleteaccesskey
+      name: action-deleteaccesskey
+      description: REST surface for ?Action=DeleteAccessKey.
+      operations:
+      - method: GET
+        name: deleteaccesskey
+        description: Amazon IAM Delete an Access Key
+        call: amazon-iam-access-keys.deleteaccesskey
+        with:
+          Action: rest.Action
+          Version: rest.Version
+          UserName: rest.UserName
+          AccessKeyId: rest.AccessKeyId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-listaccesskeys
+      name: action-listaccesskeys
+      description: REST surface for ?Action=ListAccessKeys.
+      operations:
+      - method: GET
+        name: listaccesskeys
+        description: Amazon IAM List Access Keys for a User
+        call: amazon-iam-access-keys.listaccesskeys
+        with:
+          Action: rest.Action
+          Version: rest.Version
+          UserName: rest.UserName
+          Marker: rest.Marker
+          MaxItems: rest.MaxItems
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-iam-access-keys-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon IAM API — Access Keys. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: amazon-iam-create-new-access
+      description: Amazon IAM Create a New Access Key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-keys.createaccesskey
+      with:
+        Action: tools.Action
+        Version: tools.Version
+        UserName: tools.UserName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-delete-access-key
+      description: Amazon IAM Delete an Access Key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-keys.deleteaccesskey
+      with:
+        Action: tools.Action
+        Version: tools.Version
+        UserName: tools.UserName
+        AccessKeyId: tools.AccessKeyId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iam-list-access-keys
+      description: Amazon IAM List Access Keys for a User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iam-access-keys.listaccesskeys
+      with:
+        Action: tools.Action
+        Version: tools.Version
+        UserName: tools.UserName
+        Marker: tools.Marker
+        MaxItems: tools.MaxItems
+      outputParameters:
+      - type: object
+        mapping: $.
