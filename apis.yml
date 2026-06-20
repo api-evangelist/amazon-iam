@@ -5,7 +5,7 @@ description: >-
   IAM, you can create and manage AWS users, groups, roles, and policies, and use permissions to allow and deny their
   access to AWS resources. IAM is a feature of your AWS account offered at no additional charge.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/apis.yml
 baseURL: https://iam.amazonaws.com
 tags:
