@@ -1,0 +1,359 @@
+openapi: 3.1.0
+info:
+  title: Amazon IAM Access Keys Groups API
+  description: Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
+  version: '2010-05-08'
+  contact:
+    name: Kin Lane
+    url: https://aws.amazon.com/iam/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://iam.amazonaws.com
+  description: IAM API endpoint
+security:
+- AWS4Auth: []
+tags:
+- name: Groups
+  description: Operations for managing IAM groups
+paths:
+  /?Action=CreateGroup:
+    get:
+      operationId: CreateGroup
+      summary: Amazon IAM Create a New IAM Group
+      description: Creates a new group.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - CreateGroup
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: GroupName
+        in: query
+        required: true
+        description: The name of the group to create.
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 128
+      - name: Path
+        in: query
+        description: The path to the group.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateGroupResponse'
+        '409':
+          description: EntityAlreadyExists - Group already exists
+      tags:
+      - Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=GetGroup:
+    get:
+      operationId: GetGroup
+      summary: Amazon IAM Get Information About an IAM Group
+      description: Returns a list of IAM users that are in the specified IAM group.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - GetGroup
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: GroupName
+        in: query
+        required: true
+        description: The name of the group.
+        schema:
+          type: string
+      - name: Marker
+        in: query
+        schema:
+          type: string
+      - name: MaxItems
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetGroupResponse'
+        '404':
+          description: NoSuchEntity - Group does not exist
+      tags:
+      - Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=ListGroups:
+    get:
+      operationId: ListGroups
+      summary: Amazon IAM List IAM Groups
+      description: Lists the IAM groups that have the specified path prefix.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - ListGroups
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: PathPrefix
+        in: query
+        schema:
+          type: string
+      - name: Marker
+        in: query
+        schema:
+          type: string
+      - name: MaxItems
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListGroupsResponse'
+      tags:
+      - Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=AddUserToGroup:
+    get:
+      operationId: AddUserToGroup
+      summary: Amazon IAM Add a User to an IAM Group
+      description: Adds the specified user to the specified group.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - AddUserToGroup
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: GroupName
+        in: query
+        required: true
+        description: The name of the group to update.
+        schema:
+          type: string
+      - name: UserName
+        in: query
+        required: true
+        description: The name of the user to add.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Group or user does not exist
+      tags:
+      - Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=RemoveUserFromGroup:
+    get:
+      operationId: RemoveUserFromGroup
+      summary: Amazon IAM Remove a User from an IAM Group
+      description: Removes the specified user from the specified group.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - RemoveUserFromGroup
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: GroupName
+        in: query
+        required: true
+        description: The name of the group to update.
+        schema:
+          type: string
+      - name: UserName
+        in: query
+        required: true
+        description: The name of the user to remove.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Group or user does not exist
+      tags:
+      - Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        Path:
+          type: string
+          description: The path to the user.
+        UserName:
+          type: string
+          description: The friendly name identifying the user.
+        UserId:
+          type: string
+          description: The stable and unique string identifying the user.
+        Arn:
+          type: string
+          description: The Amazon Resource Name (ARN) that identifies the user.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date and time when the user was created.
+        PasswordLastUsed:
+          type: string
+          format: date-time
+          description: The date and time when the user's password was last used to sign in.
+        Tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+      required:
+      - UserName
+      - UserId
+      - Arn
+      - CreateDate
+    Group:
+      type: object
+      properties:
+        Path:
+          type: string
+          description: The path to the group.
+        GroupName:
+          type: string
+          description: The friendly name that identifies the group.
+        GroupId:
+          type: string
+          description: The stable and unique string identifying the group.
+        Arn:
+          type: string
+          description: The Amazon Resource Name (ARN) specifying the group.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date and time when the group was created.
+      required:
+      - GroupName
+      - GroupId
+      - Arn
+      - CreateDate
+    CreateGroupResponse:
+      type: object
+      properties:
+        CreateGroupResult:
+          type: object
+          properties:
+            Group:
+              $ref: '#/components/schemas/Group'
+    Tag:
+      type: object
+      properties:
+        Key:
+          type: string
+          description: The key name for the tag.
+          minLength: 1
+          maxLength: 128
+        Value:
+          type: string
+          description: The value for the tag.
+          maxLength: 256
+      required:
+      - Key
+      - Value
+    GetGroupResponse:
+      type: object
+      properties:
+        GetGroupResult:
+          type: object
+          properties:
+            Group:
+              $ref: '#/components/schemas/Group'
+            Users:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    ListGroupsResponse:
+      type: object
+      properties:
+        ListGroupsResult:
+          type: object
+          properties:
+            Groups:
+              type: array
+              items:
+                $ref: '#/components/schemas/Group'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+  securitySchemes:
+    AWS4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication

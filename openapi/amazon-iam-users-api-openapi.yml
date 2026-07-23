@@ -1,0 +1,328 @@
+openapi: 3.1.0
+info:
+  title: Amazon IAM Access Keys Users API
+  description: Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
+  version: '2010-05-08'
+  contact:
+    name: Kin Lane
+    url: https://aws.amazon.com/iam/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://iam.amazonaws.com
+  description: IAM API endpoint
+security:
+- AWS4Auth: []
+tags:
+- name: Users
+  description: Operations for managing IAM users
+paths:
+  /?Action=CreateUser:
+    get:
+      operationId: CreateUser
+      summary: Amazon IAM Create a New IAM User
+      description: Creates a new IAM user for your AWS account.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - CreateUser
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: UserName
+        in: query
+        required: true
+        description: The name of the user to create.
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 64
+      - name: Path
+        in: query
+        description: The path for the user name.
+        schema:
+          type: string
+      - name: Tags.member.N
+        in: query
+        description: Tags to attach to the user.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateUserResponse'
+        '409':
+          description: EntityAlreadyExists - User already exists
+        '400':
+          description: ValidationError or LimitExceeded
+      tags:
+      - Users
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=GetUser:
+    get:
+      operationId: GetUser
+      summary: Amazon IAM Get Information About an IAM User
+      description: Retrieves information about the specified IAM user, including the user's creation date, path, unique ID, and ARN.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - GetUser
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: UserName
+        in: query
+        description: The name of the user to retrieve. If not specified, the user name is determined from the access key used.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetUserResponse'
+        '404':
+          description: NoSuchEntity - User does not exist
+      tags:
+      - Users
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=ListUsers:
+    get:
+      operationId: ListUsers
+      summary: Amazon IAM List IAM Users
+      description: Lists the IAM users that have the specified path prefix.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - ListUsers
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: PathPrefix
+        in: query
+        description: The path prefix for filtering the results.
+        schema:
+          type: string
+      - name: Marker
+        in: query
+        description: Pagination marker from a previous response.
+        schema:
+          type: string
+      - name: MaxItems
+        in: query
+        description: Maximum number of items to return.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListUsersResponse'
+      tags:
+      - Users
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=UpdateUser:
+    get:
+      operationId: UpdateUser
+      summary: Amazon IAM Update an IAM User
+      description: Updates the name and/or the path of the specified IAM user.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - UpdateUser
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: UserName
+        in: query
+        required: true
+        description: Name of the user to update.
+        schema:
+          type: string
+      - name: NewUserName
+        in: query
+        description: New name for the user.
+        schema:
+          type: string
+      - name: NewPath
+        in: query
+        description: New path for the user.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - User does not exist
+        '409':
+          description: EntityAlreadyExists - New user name already taken
+      tags:
+      - Users
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=DeleteUser:
+    get:
+      operationId: DeleteUser
+      summary: Amazon IAM Delete an IAM User
+      description: Deletes the specified IAM user.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DeleteUser
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: UserName
+        in: query
+        required: true
+        description: The name of the user to delete.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - User does not exist
+        '409':
+          description: DeleteConflict - User has resources attached
+      tags:
+      - Users
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        Path:
+          type: string
+          description: The path to the user.
+        UserName:
+          type: string
+          description: The friendly name identifying the user.
+        UserId:
+          type: string
+          description: The stable and unique string identifying the user.
+        Arn:
+          type: string
+          description: The Amazon Resource Name (ARN) that identifies the user.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date and time when the user was created.
+        PasswordLastUsed:
+          type: string
+          format: date-time
+          description: The date and time when the user's password was last used to sign in.
+        Tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+      required:
+      - UserName
+      - UserId
+      - Arn
+      - CreateDate
+    GetUserResponse:
+      type: object
+      properties:
+        GetUserResult:
+          type: object
+          properties:
+            User:
+              $ref: '#/components/schemas/User'
+    CreateUserResponse:
+      type: object
+      properties:
+        CreateUserResult:
+          type: object
+          properties:
+            User:
+              $ref: '#/components/schemas/User'
+    ListUsersResponse:
+      type: object
+      properties:
+        ListUsersResult:
+          type: object
+          properties:
+            Users:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    Tag:
+      type: object
+      properties:
+        Key:
+          type: string
+          description: The key name for the tag.
+          minLength: 1
+          maxLength: 128
+        Value:
+          type: string
+          description: The value for the tag.
+          maxLength: 256
+      required:
+      - Key
+      - Value
+  securitySchemes:
+    AWS4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication

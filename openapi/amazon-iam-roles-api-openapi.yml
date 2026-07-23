@@ -1,0 +1,353 @@
+openapi: 3.1.0
+info:
+  title: Amazon IAM Access Keys Roles API
+  description: Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
+  version: '2010-05-08'
+  contact:
+    name: Kin Lane
+    url: https://aws.amazon.com/iam/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://iam.amazonaws.com
+  description: IAM API endpoint
+security:
+- AWS4Auth: []
+tags:
+- name: Roles
+  description: Operations for managing IAM roles
+paths:
+  /?Action=CreateRole:
+    get:
+      operationId: CreateRole
+      summary: Amazon IAM Create a New IAM Role
+      description: Creates a new role for your AWS account.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - CreateRole
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: RoleName
+        in: query
+        required: true
+        description: The name of the role to create.
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 64
+      - name: AssumeRolePolicyDocument
+        in: query
+        required: true
+        description: The trust relationship policy document (JSON).
+        schema:
+          type: string
+      - name: Path
+        in: query
+        description: The path to the role.
+        schema:
+          type: string
+      - name: Description
+        in: query
+        description: A description of the role.
+        schema:
+          type: string
+          maxLength: 1000
+      - name: MaxSessionDuration
+        in: query
+        description: Maximum session duration in seconds.
+        schema:
+          type: integer
+          minimum: 3600
+          maximum: 43200
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateRoleResponse'
+        '409':
+          description: EntityAlreadyExists - Role already exists
+      tags:
+      - Roles
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=GetRole:
+    get:
+      operationId: GetRole
+      summary: Amazon IAM Get Information About an IAM Role
+      description: Retrieves information about the specified role, including the role's path, GUID, ARN, and the trust policy.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - GetRole
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: RoleName
+        in: query
+        required: true
+        description: The name of the role to retrieve.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetRoleResponse'
+        '404':
+          description: NoSuchEntity - Role does not exist
+      tags:
+      - Roles
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=ListRoles:
+    get:
+      operationId: ListRoles
+      summary: Amazon IAM List IAM Roles
+      description: Lists the IAM roles that have the specified path prefix.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - ListRoles
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: PathPrefix
+        in: query
+        description: The path prefix for filtering the results.
+        schema:
+          type: string
+      - name: Marker
+        in: query
+        schema:
+          type: string
+      - name: MaxItems
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListRolesResponse'
+      tags:
+      - Roles
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=DeleteRole:
+    get:
+      operationId: DeleteRole
+      summary: Amazon IAM Delete an IAM Role
+      description: Deletes the specified role.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DeleteRole
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: RoleName
+        in: query
+        required: true
+        description: The name of the role to delete.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Role does not exist
+        '409':
+          description: DeleteConflict - Role has resources attached
+      tags:
+      - Roles
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=AssumeRole:
+    get:
+      operationId: AssumeRole
+      summary: Amazon IAM Assume an IAM Role
+      description: Returns a set of temporary security credentials that you can use to access AWS resources. Uses the AWS STS service.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - AssumeRole
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2011-06-15'
+      - name: RoleArn
+        in: query
+        required: true
+        description: The ARN of the role to assume.
+        schema:
+          type: string
+      - name: RoleSessionName
+        in: query
+        required: true
+        description: An identifier for the assumed role session.
+        schema:
+          type: string
+          minLength: 2
+          maxLength: 64
+      - name: DurationSeconds
+        in: query
+        description: Duration of the role session in seconds.
+        schema:
+          type: integer
+          minimum: 900
+          maximum: 43200
+      - name: ExternalId
+        in: query
+        description: A unique identifier used by third parties.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with temporary credentials
+        '403':
+          description: AccessDenied
+      tags:
+      - Roles
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CreateRoleResponse:
+      type: object
+      properties:
+        CreateRoleResult:
+          type: object
+          properties:
+            Role:
+              $ref: '#/components/schemas/Role'
+    Role:
+      type: object
+      properties:
+        Path:
+          type: string
+          description: The path to the role.
+        RoleName:
+          type: string
+          description: The friendly name that identifies the role.
+        RoleId:
+          type: string
+          description: The stable and unique string identifying the role.
+        Arn:
+          type: string
+          description: The Amazon Resource Name (ARN) specifying the role.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date and time when the role was created.
+        AssumeRolePolicyDocument:
+          type: string
+          description: The policy that grants an entity permission to assume the role.
+        Description:
+          type: string
+          description: A description of the role.
+        MaxSessionDuration:
+          type: integer
+          description: The maximum session duration (in seconds) for the specified role.
+        Tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+      required:
+      - RoleName
+      - RoleId
+      - Arn
+      - CreateDate
+      - AssumeRolePolicyDocument
+    GetRoleResponse:
+      type: object
+      properties:
+        GetRoleResult:
+          type: object
+          properties:
+            Role:
+              $ref: '#/components/schemas/Role'
+    ListRolesResponse:
+      type: object
+      properties:
+        ListRolesResult:
+          type: object
+          properties:
+            Roles:
+              type: array
+              items:
+                $ref: '#/components/schemas/Role'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    Tag:
+      type: object
+      properties:
+        Key:
+          type: string
+          description: The key name for the tag.
+          minLength: 1
+          maxLength: 128
+        Value:
+          type: string
+          description: The value for the tag.
+          maxLength: 256
+      required:
+      - Key
+      - Value
+  securitySchemes:
+    AWS4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication

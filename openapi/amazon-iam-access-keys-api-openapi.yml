@@ -1,0 +1,202 @@
+openapi: 3.1.0
+info:
+  title: Amazon IAM Access Keys API
+  description: Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
+  version: '2010-05-08'
+  contact:
+    name: Kin Lane
+    url: https://aws.amazon.com/iam/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://iam.amazonaws.com
+  description: IAM API endpoint
+security:
+- AWS4Auth: []
+tags:
+- name: Access Keys
+  description: Operations for managing IAM access keys
+paths:
+  /?Action=CreateAccessKey:
+    get:
+      operationId: CreateAccessKey
+      summary: Amazon IAM Create a New Access Key
+      description: Creates a new AWS secret access key and corresponding AWS access key ID for the specified user.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - CreateAccessKey
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: UserName
+        in: query
+        description: The name of the IAM user for the new key. If not specified, uses the calling user.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateAccessKeyResponse'
+        '400':
+          description: LimitExceeded - Maximum number of access keys reached
+      tags:
+      - Access Keys
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=ListAccessKeys:
+    get:
+      operationId: ListAccessKeys
+      summary: Amazon IAM List Access Keys for a User
+      description: Returns information about the access key IDs associated with the specified IAM user.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - ListAccessKeys
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: UserName
+        in: query
+        description: The name of the user.
+        schema:
+          type: string
+      - name: Marker
+        in: query
+        schema:
+          type: string
+      - name: MaxItems
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListAccessKeysResponse'
+        '404':
+          description: NoSuchEntity - User does not exist
+      tags:
+      - Access Keys
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=DeleteAccessKey:
+    get:
+      operationId: DeleteAccessKey
+      summary: Amazon IAM Delete an Access Key
+      description: Deletes the access key pair associated with the specified IAM user.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DeleteAccessKey
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: UserName
+        in: query
+        description: The name of the user whose access key you want to delete.
+        schema:
+          type: string
+      - name: AccessKeyId
+        in: query
+        required: true
+        description: The access key ID for the access key to delete.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Access key does not exist
+      tags:
+      - Access Keys
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ListAccessKeysResponse:
+      type: object
+      properties:
+        ListAccessKeysResult:
+          type: object
+          properties:
+            AccessKeyMetadata:
+              type: array
+              items:
+                $ref: '#/components/schemas/AccessKey'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    CreateAccessKeyResponse:
+      type: object
+      properties:
+        CreateAccessKeyResult:
+          type: object
+          properties:
+            AccessKey:
+              $ref: '#/components/schemas/AccessKey'
+    AccessKey:
+      type: object
+      properties:
+        UserName:
+          type: string
+          description: The name of the IAM user the access key is associated with.
+        AccessKeyId:
+          type: string
+          description: The ID for this access key.
+        Status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+          description: The status of the access key.
+        SecretAccessKey:
+          type: string
+          description: The secret key used to sign requests. Only returned on creation.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date when the access key was created.
+      required:
+      - UserName
+      - AccessKeyId
+      - Status
+  securitySchemes:
+    AWS4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication

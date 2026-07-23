@@ -1,0 +1,418 @@
+openapi: 3.1.0
+info:
+  title: Amazon IAM Access Keys Policies API
+  description: Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
+  version: '2010-05-08'
+  contact:
+    name: Kin Lane
+    url: https://aws.amazon.com/iam/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://iam.amazonaws.com
+  description: IAM API endpoint
+security:
+- AWS4Auth: []
+tags:
+- name: Policies
+  description: Operations for managing IAM policies
+paths:
+  /?Action=CreatePolicy:
+    get:
+      operationId: CreatePolicy
+      summary: Amazon IAM Create a New IAM Policy
+      description: Creates a new managed policy for your AWS account.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - CreatePolicy
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: PolicyName
+        in: query
+        required: true
+        description: The name of the policy to create.
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 128
+      - name: PolicyDocument
+        in: query
+        required: true
+        description: The JSON policy document.
+        schema:
+          type: string
+      - name: Path
+        in: query
+        description: The path for the policy.
+        schema:
+          type: string
+      - name: Description
+        in: query
+        description: A description of the policy.
+        schema:
+          type: string
+          maxLength: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreatePolicyResponse'
+        '409':
+          description: EntityAlreadyExists - Policy already exists
+      tags:
+      - Policies
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=GetPolicy:
+    get:
+      operationId: GetPolicy
+      summary: Amazon IAM Get Information About an IAM Policy
+      description: Retrieves information about the specified managed policy, including the policy's default version and the total number of IAM entities the policy is attached to.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - GetPolicy
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: PolicyArn
+        in: query
+        required: true
+        description: The ARN of the policy to retrieve.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetPolicyResponse'
+        '404':
+          description: NoSuchEntity - Policy does not exist
+      tags:
+      - Policies
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=ListPolicies:
+    get:
+      operationId: ListPolicies
+      summary: Amazon IAM List IAM Policies
+      description: Lists all the managed policies that are available in your AWS account.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - ListPolicies
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: Scope
+        in: query
+        description: Filter by scope (All, AWS, or Local).
+        schema:
+          type: string
+          enum:
+          - All
+          - AWS
+          - Local
+      - name: OnlyAttached
+        in: query
+        description: Filter to only attached policies.
+        schema:
+          type: boolean
+      - name: PathPrefix
+        in: query
+        schema:
+          type: string
+      - name: Marker
+        in: query
+        schema:
+          type: string
+      - name: MaxItems
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListPoliciesResponse'
+      tags:
+      - Policies
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=AttachUserPolicy:
+    get:
+      operationId: AttachUserPolicy
+      summary: Amazon IAM Attach a Managed Policy to a User
+      description: Attaches the specified managed policy to the specified user.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - AttachUserPolicy
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: UserName
+        in: query
+        required: true
+        description: The name of the IAM user to attach the policy to.
+        schema:
+          type: string
+      - name: PolicyArn
+        in: query
+        required: true
+        description: The ARN of the managed policy to attach.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - User or policy does not exist
+      tags:
+      - Policies
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=AttachRolePolicy:
+    get:
+      operationId: AttachRolePolicy
+      summary: Amazon IAM Attach a Managed Policy to a Role
+      description: Attaches the specified managed policy to the specified IAM role.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - AttachRolePolicy
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: RoleName
+        in: query
+        required: true
+        description: The name of the role to attach the policy to.
+        schema:
+          type: string
+      - name: PolicyArn
+        in: query
+        required: true
+        description: The ARN of the managed policy to attach.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Role or policy does not exist
+      tags:
+      - Policies
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=DetachUserPolicy:
+    get:
+      operationId: DetachUserPolicy
+      summary: Amazon IAM Detach a Managed Policy from a User
+      description: Removes the specified managed policy from the specified user.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DetachUserPolicy
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: UserName
+        in: query
+        required: true
+        description: The name of the IAM user to detach the policy from.
+        schema:
+          type: string
+      - name: PolicyArn
+        in: query
+        required: true
+        description: The ARN of the managed policy to detach.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - User or policy does not exist
+      tags:
+      - Policies
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=DetachRolePolicy:
+    get:
+      operationId: DetachRolePolicy
+      summary: Amazon IAM Detach a Managed Policy from a Role
+      description: Removes the specified managed policy from the specified role.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DetachRolePolicy
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-08'
+      - name: RoleName
+        in: query
+        required: true
+        description: The name of the role to detach the policy from.
+        schema:
+          type: string
+      - name: PolicyArn
+        in: query
+        required: true
+        description: The ARN of the managed policy to detach.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: NoSuchEntity - Role or policy does not exist
+      tags:
+      - Policies
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CreatePolicyResponse:
+      type: object
+      properties:
+        CreatePolicyResult:
+          type: object
+          properties:
+            Policy:
+              $ref: '#/components/schemas/Policy'
+    GetPolicyResponse:
+      type: object
+      properties:
+        GetPolicyResult:
+          type: object
+          properties:
+            Policy:
+              $ref: '#/components/schemas/Policy'
+    Policy:
+      type: object
+      properties:
+        PolicyName:
+          type: string
+          description: The friendly name identifying the policy.
+        PolicyId:
+          type: string
+          description: The stable and unique string identifying the policy.
+        Arn:
+          type: string
+          description: The Amazon Resource Name (ARN) of the policy.
+        Path:
+          type: string
+          description: The path to the policy.
+        DefaultVersionId:
+          type: string
+          description: The identifier for the version of the policy that is the default.
+        AttachmentCount:
+          type: integer
+          description: The number of entities the policy is attached to.
+        IsAttachable:
+          type: boolean
+          description: Specifies whether the policy can be attached.
+        Description:
+          type: string
+          description: A description of the policy.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date and time when the policy was created.
+        UpdateDate:
+          type: string
+          format: date-time
+          description: The date and time when the policy was last updated.
+      required:
+      - PolicyName
+      - PolicyId
+      - Arn
+      - CreateDate
+    ListPoliciesResponse:
+      type: object
+      properties:
+        ListPoliciesResult:
+          type: object
+          properties:
+            Policies:
+              type: array
+              items:
+                $ref: '#/components/schemas/Policy'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+  securitySchemes:
+    AWS4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
