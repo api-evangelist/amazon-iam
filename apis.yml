@@ -5,7 +5,20 @@ description: >-
   IAM, you can create and manage AWS users, groups, roles, and policies, and use permissions to allow and deny their
   access to AWS resources. IAM is a feature of your AWS account offered at no additional charge.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-iam.png
 url: https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/apis.yml
 baseURL: https://iam.amazonaws.com
 tags:
@@ -19,39 +32,139 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: amazon-iam:aws-iam-api
-    name: AWS IAM API
-    description: >-
-      The AWS IAM API provides programmatic access to manage users, groups, roles, policies, and access keys for
-      securing access to AWS services and resources.
-    humanURL: https://aws.amazon.com/iam/
-    baseURL: https://iam.amazonaws.com
-    tags:
-      - Access Management
-      - Authentication
-      - Authorization
-      - Identity
-      - Security
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/IAM/latest/APIReference/
-      - type: OpenAPI
-        url: openapi/amazon-iam-openapi.yml
-      - type: APIReference
-        url: https://docs.aws.amazon.com/IAM/latest/APIReference/
-      - type: GettingStarted
-        url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
-      - type: Pricing
-        url: https://aws.amazon.com/iam/pricing/
-      - type: FAQ
-        url: https://aws.amazon.com/iam/faqs/
-      - type: JSONSchema
-        url: json-schema/amazon-iam-user-schema.json
-      - type: JSONStructure
-        url: json-structure/amazon-iam-user-structure.json
-      - type: Examples
-        url: examples/amazon-iam-user-example.json
+- aid: amazon-iam:amazon-iam-access-keys-api
+  name: Amazon IAM Access Keys API
+  description: Operations for managing IAM access keys
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Access Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-keys-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-iam-user-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-iam-user-structure.json
+  - type: Examples
+    url: examples/amazon-iam-user-example.json
+- aid: amazon-iam:amazon-iam-groups-api
+  name: Amazon IAM Groups API
+  description: Operations for managing IAM groups
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-iam-user-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-iam-user-structure.json
+  - type: Examples
+    url: examples/amazon-iam-user-example.json
+- aid: amazon-iam:amazon-iam-policies-api
+  name: Amazon IAM Policies API
+  description: Operations for managing IAM policies
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-policies-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-iam-user-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-iam-user-structure.json
+  - type: Examples
+    url: examples/amazon-iam-user-example.json
+- aid: amazon-iam:amazon-iam-roles-api
+  name: Amazon IAM Roles API
+  description: Operations for managing IAM roles
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-roles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-iam-user-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-iam-user-structure.json
+  - type: Examples
+    url: examples/amazon-iam-user-example.json
+- aid: amazon-iam:amazon-iam-users-api
+  name: Amazon IAM Users API
+  description: Operations for managing IAM users
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-iam-user-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-iam-user-structure.json
+  - type: Examples
+    url: examples/amazon-iam-user-example.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-iam/overview
   - type: AgenticAccess
     url: agentic-access/amazon-iam-agentic-access.yml
   - type: TrustCenter
