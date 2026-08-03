@@ -1,0 +1,1062 @@
+{
+  "info": {
+    "_postman_id": "6e43074d-f69a-4335-8391-fa27237531a4",
+    "name": "Amazon IAM Access Keys Users API",
+    "description": "Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.\n\nContact Support:\n Name: Kin Lane",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:40:55.000Z",
+    "updatedAt": "2026-07-28T00:40:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6e43074d-f69a-4335-8391-fa27237531a4"
+  },
+  "item": [
+    {
+      "name": "?Action=CreateUser",
+      "item": [
+        {
+          "name": "Amazon IAM Create a New IAM User",
+          "id": "04f5560e-9141-406e-8935-b44752b1b16a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateUser&Action=CreateUser&Version=2010-05-08&UserName=<string>&Path=<string>&Tags.member.N=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateUser"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "CreateUser"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "(Required) The name of the user to create.",
+                  "key": "UserName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The path for the user name.",
+                  "key": "Path",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Tags to attach to the user.",
+                  "key": "Tags.member.N",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a new IAM user for your AWS account."
+          },
+          "response": [
+            {
+              "id": "3be0bdd3-785e-4e19-bde1-a2964eb849ae",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateUser&Version=2010-05-08&UserName=<string>&Path=<string>&Tags.member.N=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateUser"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the user to create.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The path for the user name.",
+                      "key": "Path",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Tags to attach to the user.",
+                      "key": "Tags.member.N",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <CreateUserResult>\n    <User>\n      <Path>(string)</Path>\n      <UserName>(string)</UserName>\n      <UserId>(string)</UserId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <PasswordLastUsed>(string)</PasswordLastUsed>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </User>\n  </CreateUserResult>\n</element>",
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-3be0bdd3-785e-4e19-bde1-a2964eb849ae"
+            },
+            {
+              "id": "296a6850-7f90-42d0-bd1a-f81c6925f77f",
+              "name": "ValidationError or LimitExceeded",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateUser&Version=2010-05-08&UserName=<string>&Path=<string>&Tags.member.N=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateUser"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the user to create.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The path for the user name.",
+                      "key": "Path",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Tags to attach to the user.",
+                      "key": "Tags.member.N",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-296a6850-7f90-42d0-bd1a-f81c6925f77f"
+            },
+            {
+              "id": "25402238-fab0-4379-9d75-d611022d49a2",
+              "name": "EntityAlreadyExists - User already exists",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateUser&Version=2010-05-08&UserName=<string>&Path=<string>&Tags.member.N=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateUser"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the user to create.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The path for the user name.",
+                      "key": "Path",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Tags to attach to the user.",
+                      "key": "Tags.member.N",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-25402238-fab0-4379-9d75-d611022d49a2"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:56.000Z",
+          "updatedAt": "2026-07-28T00:40:56.000Z",
+          "uid": "35240-04f5560e-9141-406e-8935-b44752b1b16a"
+        }
+      ],
+      "id": "03a7521c-f422-49c9-8be0-05204f062fb4",
+      "createdAt": "2026-07-28T00:40:56.000Z",
+      "updatedAt": "2026-07-28T00:40:56.000Z",
+      "uid": "35240-03a7521c-f422-49c9-8be0-05204f062fb4"
+    },
+    {
+      "name": "?Action=GetUser",
+      "item": [
+        {
+          "name": "Amazon IAM Get Information About an IAM User",
+          "id": "d64147aa-f036-4144-88df-e6de7452fef0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=GetUser&Action=GetUser&Version=2010-05-08&UserName=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetUser"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "GetUser"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "The name of the user to retrieve. If not specified, the user name is determined from the access key used.",
+                  "key": "UserName",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieves information about the specified IAM user, including the user's creation date, path, unique ID, and ARN."
+          },
+          "response": [
+            {
+              "id": "f864623d-1686-4561-9fc6-b9844b6c4061",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=GetUser&Version=2010-05-08&UserName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "GetUser"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "The name of the user to retrieve. If not specified, the user name is determined from the access key used.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <GetUserResult>\n    <User>\n      <Path>(string)</Path>\n      <UserName>(string)</UserName>\n      <UserId>(string)</UserId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <PasswordLastUsed>(string)</PasswordLastUsed>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </User>\n  </GetUserResult>\n</element>",
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-f864623d-1686-4561-9fc6-b9844b6c4061"
+            },
+            {
+              "id": "02debc0a-78d0-4ec6-85db-99d9c0ad2356",
+              "name": "NoSuchEntity - User does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=GetUser&Version=2010-05-08&UserName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "GetUser"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "The name of the user to retrieve. If not specified, the user name is determined from the access key used.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-02debc0a-78d0-4ec6-85db-99d9c0ad2356"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:56.000Z",
+          "updatedAt": "2026-07-28T00:40:56.000Z",
+          "uid": "35240-d64147aa-f036-4144-88df-e6de7452fef0"
+        }
+      ],
+      "id": "53f3c125-96ee-4973-9997-94ef12c72c60",
+      "createdAt": "2026-07-28T00:40:56.000Z",
+      "updatedAt": "2026-07-28T00:40:56.000Z",
+      "uid": "35240-53f3c125-96ee-4973-9997-94ef12c72c60"
+    },
+    {
+      "name": "?Action=ListUsers",
+      "item": [
+        {
+          "name": "Amazon IAM List IAM Users",
+          "id": "9154c1df-8e59-49a6-a02f-f999e4a4c555",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=ListUsers&Action=ListUsers&Version=2010-05-08&PathPrefix=<string>&Marker=<string>&MaxItems=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ListUsers"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "ListUsers"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "The path prefix for filtering the results.",
+                  "key": "PathPrefix",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination marker from a previous response.",
+                  "key": "Marker",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of items to return.",
+                  "key": "MaxItems",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Lists the IAM users that have the specified path prefix."
+          },
+          "response": [
+            {
+              "id": "9de0f001-02a6-4af2-abdb-22b4b66c2507",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ListUsers&Version=2010-05-08&PathPrefix=<string>&Marker=<string>&MaxItems=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ListUsers"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "The path prefix for filtering the results.",
+                      "key": "PathPrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination marker from a previous response.",
+                      "key": "Marker",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of items to return.",
+                      "key": "MaxItems",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ListUsersResult>\n    <Users>\n      <Path>(string)</Path>\n      <UserName>(string)</UserName>\n      <UserId>(string)</UserId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <PasswordLastUsed>(string)</PasswordLastUsed>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </Users>\n    <Users>\n      <Path>(string)</Path>\n      <UserName>(string)</UserName>\n      <UserId>(string)</UserId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <PasswordLastUsed>(string)</PasswordLastUsed>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </Users>\n    <IsTruncated>(boolean)</IsTruncated>\n    <Marker>(string)</Marker>\n  </ListUsersResult>\n</element>",
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-9de0f001-02a6-4af2-abdb-22b4b66c2507"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:56.000Z",
+          "updatedAt": "2026-07-28T00:40:56.000Z",
+          "uid": "35240-9154c1df-8e59-49a6-a02f-f999e4a4c555"
+        }
+      ],
+      "id": "54c8697d-a36c-4b64-8b42-57fd619712ea",
+      "createdAt": "2026-07-28T00:40:56.000Z",
+      "updatedAt": "2026-07-28T00:40:56.000Z",
+      "uid": "35240-54c8697d-a36c-4b64-8b42-57fd619712ea"
+    },
+    {
+      "name": "?Action=UpdateUser",
+      "item": [
+        {
+          "name": "Amazon IAM Update an IAM User",
+          "id": "1777e42e-9731-4ba9-9344-20ea2e2757ae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=UpdateUser&Action=UpdateUser&Version=2010-05-08&UserName=<string>&NewUserName=<string>&NewPath=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "UpdateUser"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "UpdateUser"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "(Required) Name of the user to update.",
+                  "key": "UserName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "New name for the user.",
+                  "key": "NewUserName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "New path for the user.",
+                  "key": "NewPath",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Updates the name and/or the path of the specified IAM user."
+          },
+          "response": [
+            {
+              "id": "e69861f2-c1cd-495f-b368-f66c7cd3608f",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=UpdateUser&Version=2010-05-08&UserName=<string>&NewUserName=<string>&NewPath=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateUser"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) Name of the user to update.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "New name for the user.",
+                      "key": "NewUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "New path for the user.",
+                      "key": "NewPath",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-e69861f2-c1cd-495f-b368-f66c7cd3608f"
+            },
+            {
+              "id": "45e32ebd-ed20-473e-b8aa-4038b2f5b0b9",
+              "name": "NoSuchEntity - User does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=UpdateUser&Version=2010-05-08&UserName=<string>&NewUserName=<string>&NewPath=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateUser"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) Name of the user to update.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "New name for the user.",
+                      "key": "NewUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "New path for the user.",
+                      "key": "NewPath",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-45e32ebd-ed20-473e-b8aa-4038b2f5b0b9"
+            },
+            {
+              "id": "5d167b9d-d73d-4597-bc4c-b8ee2ce5f30d",
+              "name": "EntityAlreadyExists - New user name already taken",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=UpdateUser&Version=2010-05-08&UserName=<string>&NewUserName=<string>&NewPath=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateUser"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) Name of the user to update.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "New name for the user.",
+                      "key": "NewUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "New path for the user.",
+                      "key": "NewPath",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-5d167b9d-d73d-4597-bc4c-b8ee2ce5f30d"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:56.000Z",
+          "updatedAt": "2026-07-28T00:40:56.000Z",
+          "uid": "35240-1777e42e-9731-4ba9-9344-20ea2e2757ae"
+        }
+      ],
+      "id": "98eac6c2-165b-408c-a211-552f0dc151f1",
+      "createdAt": "2026-07-28T00:40:56.000Z",
+      "updatedAt": "2026-07-28T00:40:56.000Z",
+      "uid": "35240-98eac6c2-165b-408c-a211-552f0dc151f1"
+    },
+    {
+      "name": "?Action=DeleteUser",
+      "item": [
+        {
+          "name": "Amazon IAM Delete an IAM User",
+          "id": "eca7a6ee-be73-4594-86fa-c528ec1a3774",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DeleteUser&Action=DeleteUser&Version=2010-05-08&UserName=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteUser"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DeleteUser"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "(Required) The name of the user to delete.",
+                  "key": "UserName",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Deletes the specified IAM user."
+          },
+          "response": [
+            {
+              "id": "776ea213-fec2-467e-8717-adacb715607c",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteUser&Version=2010-05-08&UserName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteUser"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the user to delete.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-776ea213-fec2-467e-8717-adacb715607c"
+            },
+            {
+              "id": "15921232-6377-4c66-aeb5-b2a9e376ea1d",
+              "name": "NoSuchEntity - User does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteUser&Version=2010-05-08&UserName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteUser"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the user to delete.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-15921232-6377-4c66-aeb5-b2a9e376ea1d"
+            },
+            {
+              "id": "49f91aa3-9a3c-4713-be6b-26281661ab86",
+              "name": "DeleteConflict - User has resources attached",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteUser&Version=2010-05-08&UserName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteUser"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the user to delete.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:56.000Z",
+              "updatedAt": "2026-07-28T00:40:56.000Z",
+              "uid": "35240-49f91aa3-9a3c-4713-be6b-26281661ab86"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:56.000Z",
+          "updatedAt": "2026-07-28T00:40:56.000Z",
+          "uid": "35240-eca7a6ee-be73-4594-86fa-c528ec1a3774"
+        }
+      ],
+      "id": "d564245a-d313-479e-ae77-7203c7cdbc69",
+      "createdAt": "2026-07-28T00:40:56.000Z",
+      "updatedAt": "2026-07-28T00:40:56.000Z",
+      "uid": "35240-d564245a-d313-479e-ae77-7203c7cdbc69"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://iam.amazonaws.com"
+    }
+  ]
+}

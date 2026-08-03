@@ -1,0 +1,22 @@
+{
+  "provider": "amazon-iam",
+  "sources": [
+    "amazon-iam-access-keys-api-openapi.yml",
+    "amazon-iam-groups-api-openapi.yml",
+    "amazon-iam-policies-api-openapi.yml",
+    "amazon-iam-roles-api-openapi.yml",
+    "amazon-iam-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-iam-access-keys-api-openapi.yml",
+    "amazon-iam-groups-api-openapi.yml",
+    "amazon-iam-policies-api-openapi.yml",
+    "amazon-iam-roles-api-openapi.yml",
+    "amazon-iam-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

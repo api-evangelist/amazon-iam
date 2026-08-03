@@ -1,0 +1,1263 @@
+{
+  "info": {
+    "_postman_id": "0287a51b-df6a-4d43-a970-0bdc87b9545c",
+    "name": "Amazon IAM Access Keys Policies API",
+    "description": "Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.\n\nContact Support:\n Name: Kin Lane",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:40:54.000Z",
+    "updatedAt": "2026-07-28T00:40:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0287a51b-df6a-4d43-a970-0bdc87b9545c"
+  },
+  "item": [
+    {
+      "name": "?Action=CreatePolicy",
+      "item": [
+        {
+          "name": "Amazon IAM Create a New IAM Policy",
+          "id": "32fe4266-368b-4aff-b705-bb0dc3809451",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreatePolicy&Action=CreatePolicy&Version=2010-05-08&PolicyName=<string>&PolicyDocument=<string>&Path=<string>&Description=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreatePolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "CreatePolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "(Required) The name of the policy to create.",
+                  "key": "PolicyName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The JSON policy document.",
+                  "key": "PolicyDocument",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The path for the policy.",
+                  "key": "Path",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A description of the policy.",
+                  "key": "Description",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a new managed policy for your AWS account."
+          },
+          "response": [
+            {
+              "id": "c9680284-63e0-4d47-89b9-3cd05c1748fc",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreatePolicy&Version=2010-05-08&PolicyName=<string>&PolicyDocument=<string>&Path=<string>&Description=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreatePolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the policy to create.",
+                      "key": "PolicyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The JSON policy document.",
+                      "key": "PolicyDocument",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The path for the policy.",
+                      "key": "Path",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A description of the policy.",
+                      "key": "Description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <CreatePolicyResult>\n    <Policy>\n      <PolicyName>(string)</PolicyName>\n      <PolicyId>(string)</PolicyId>\n      <Arn>(string)</Arn>\n      <Path>(string)</Path>\n      <DefaultVersionId>(string)</DefaultVersionId>\n      <AttachmentCount>(integer)</AttachmentCount>\n      <IsAttachable>(boolean)</IsAttachable>\n      <Description>(string)</Description>\n      <CreateDate>(string)</CreateDate>\n      <UpdateDate>(string)</UpdateDate>\n    </Policy>\n  </CreatePolicyResult>\n</element>",
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-c9680284-63e0-4d47-89b9-3cd05c1748fc"
+            },
+            {
+              "id": "35ee0c4d-cb3a-40a5-b2ef-897c0e1ef498",
+              "name": "EntityAlreadyExists - Policy already exists",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreatePolicy&Version=2010-05-08&PolicyName=<string>&PolicyDocument=<string>&Path=<string>&Description=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreatePolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the policy to create.",
+                      "key": "PolicyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The JSON policy document.",
+                      "key": "PolicyDocument",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The path for the policy.",
+                      "key": "Path",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A description of the policy.",
+                      "key": "Description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-35ee0c4d-cb3a-40a5-b2ef-897c0e1ef498"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:54.000Z",
+          "updatedAt": "2026-07-28T00:40:54.000Z",
+          "uid": "35240-32fe4266-368b-4aff-b705-bb0dc3809451"
+        }
+      ],
+      "id": "a36fbb51-8aff-409b-84a8-fae73fc36ba8",
+      "createdAt": "2026-07-28T00:40:54.000Z",
+      "updatedAt": "2026-07-28T00:40:54.000Z",
+      "uid": "35240-a36fbb51-8aff-409b-84a8-fae73fc36ba8"
+    },
+    {
+      "name": "?Action=GetPolicy",
+      "item": [
+        {
+          "name": "Amazon IAM Get Information About an IAM Policy",
+          "id": "83ae8997-b8d2-4e6c-b875-9a95a03bfcf5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=GetPolicy&Action=GetPolicy&Version=2010-05-08&PolicyArn=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetPolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "GetPolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "(Required) The ARN of the policy to retrieve.",
+                  "key": "PolicyArn",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieves information about the specified managed policy, including the policy's default version and the total number of IAM entities the policy is attached to."
+          },
+          "response": [
+            {
+              "id": "c4efa059-2c78-4f1c-bb3f-56fa89da8ea9",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=GetPolicy&Version=2010-05-08&PolicyArn=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "GetPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The ARN of the policy to retrieve.",
+                      "key": "PolicyArn",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <GetPolicyResult>\n    <Policy>\n      <PolicyName>(string)</PolicyName>\n      <PolicyId>(string)</PolicyId>\n      <Arn>(string)</Arn>\n      <Path>(string)</Path>\n      <DefaultVersionId>(string)</DefaultVersionId>\n      <AttachmentCount>(integer)</AttachmentCount>\n      <IsAttachable>(boolean)</IsAttachable>\n      <Description>(string)</Description>\n      <CreateDate>(string)</CreateDate>\n      <UpdateDate>(string)</UpdateDate>\n    </Policy>\n  </GetPolicyResult>\n</element>",
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-c4efa059-2c78-4f1c-bb3f-56fa89da8ea9"
+            },
+            {
+              "id": "bc36c778-7e4c-4981-94c7-cff71bc08a17",
+              "name": "NoSuchEntity - Policy does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=GetPolicy&Version=2010-05-08&PolicyArn=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "GetPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The ARN of the policy to retrieve.",
+                      "key": "PolicyArn",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-bc36c778-7e4c-4981-94c7-cff71bc08a17"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:54.000Z",
+          "updatedAt": "2026-07-28T00:40:54.000Z",
+          "uid": "35240-83ae8997-b8d2-4e6c-b875-9a95a03bfcf5"
+        }
+      ],
+      "id": "52231362-c4fe-4c77-b861-7d85ee29d63f",
+      "createdAt": "2026-07-28T00:40:54.000Z",
+      "updatedAt": "2026-07-28T00:40:54.000Z",
+      "uid": "35240-52231362-c4fe-4c77-b861-7d85ee29d63f"
+    },
+    {
+      "name": "?Action=ListPolicies",
+      "item": [
+        {
+          "name": "Amazon IAM List IAM Policies",
+          "id": "198eb5d7-a82f-49d0-bef6-57aab5a5a267",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=ListPolicies&Action=ListPolicies&Version=2010-05-08&Scope=All&OnlyAttached=<boolean>&PathPrefix=<string>&Marker=<string>&MaxItems=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ListPolicies"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "ListPolicies"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "Filter by scope (All, AWS, or Local).",
+                  "key": "Scope",
+                  "value": "All"
+                },
+                {
+                  "description": "Filter to only attached policies.",
+                  "key": "OnlyAttached",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "PathPrefix",
+                  "value": "<string>"
+                },
+                {
+                  "key": "Marker",
+                  "value": "<string>"
+                },
+                {
+                  "key": "MaxItems",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Lists all the managed policies that are available in your AWS account."
+          },
+          "response": [
+            {
+              "id": "f023f83e-9906-4939-86ae-d366b86de79e",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ListPolicies&Version=2010-05-08&Scope=All&OnlyAttached=<boolean>&PathPrefix=<string>&Marker=<string>&MaxItems=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ListPolicies"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "Filter by scope (All, AWS, or Local).",
+                      "key": "Scope",
+                      "value": "All"
+                    },
+                    {
+                      "description": "Filter to only attached policies.",
+                      "key": "OnlyAttached",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "PathPrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxItems",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ListPoliciesResult>\n    <Policies>\n      <PolicyName>(string)</PolicyName>\n      <PolicyId>(string)</PolicyId>\n      <Arn>(string)</Arn>\n      <Path>(string)</Path>\n      <DefaultVersionId>(string)</DefaultVersionId>\n      <AttachmentCount>(integer)</AttachmentCount>\n      <IsAttachable>(boolean)</IsAttachable>\n      <Description>(string)</Description>\n      <CreateDate>(string)</CreateDate>\n      <UpdateDate>(string)</UpdateDate>\n    </Policies>\n    <Policies>\n      <PolicyName>(string)</PolicyName>\n      <PolicyId>(string)</PolicyId>\n      <Arn>(string)</Arn>\n      <Path>(string)</Path>\n      <DefaultVersionId>(string)</DefaultVersionId>\n      <AttachmentCount>(integer)</AttachmentCount>\n      <IsAttachable>(boolean)</IsAttachable>\n      <Description>(string)</Description>\n      <CreateDate>(string)</CreateDate>\n      <UpdateDate>(string)</UpdateDate>\n    </Policies>\n    <IsTruncated>(boolean)</IsTruncated>\n    <Marker>(string)</Marker>\n  </ListPoliciesResult>\n</element>",
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-f023f83e-9906-4939-86ae-d366b86de79e"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:54.000Z",
+          "updatedAt": "2026-07-28T00:40:54.000Z",
+          "uid": "35240-198eb5d7-a82f-49d0-bef6-57aab5a5a267"
+        }
+      ],
+      "id": "e1cf2279-3cfa-427e-a888-5e9e49bc7c31",
+      "createdAt": "2026-07-28T00:40:54.000Z",
+      "updatedAt": "2026-07-28T00:40:54.000Z",
+      "uid": "35240-e1cf2279-3cfa-427e-a888-5e9e49bc7c31"
+    },
+    {
+      "name": "?Action=AttachUserPolicy",
+      "item": [
+        {
+          "name": "Amazon IAM Attach a Managed Policy to a User",
+          "id": "d299d737-46e2-4ef2-955d-a51aa040fb16",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=AttachUserPolicy&Action=AttachUserPolicy&Version=2010-05-08&UserName=<string>&PolicyArn=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "AttachUserPolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "AttachUserPolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "(Required) The name of the IAM user to attach the policy to.",
+                  "key": "UserName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The ARN of the managed policy to attach.",
+                  "key": "PolicyArn",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Attaches the specified managed policy to the specified user."
+          },
+          "response": [
+            {
+              "id": "0a5969b4-87f5-4984-98f2-b05db3eefd16",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=AttachUserPolicy&Version=2010-05-08&UserName=<string>&PolicyArn=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "AttachUserPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the IAM user to attach the policy to.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ARN of the managed policy to attach.",
+                      "key": "PolicyArn",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-0a5969b4-87f5-4984-98f2-b05db3eefd16"
+            },
+            {
+              "id": "1d078354-f8d0-4eea-8800-211247a3f83c",
+              "name": "NoSuchEntity - User or policy does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=AttachUserPolicy&Version=2010-05-08&UserName=<string>&PolicyArn=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "AttachUserPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the IAM user to attach the policy to.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ARN of the managed policy to attach.",
+                      "key": "PolicyArn",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-1d078354-f8d0-4eea-8800-211247a3f83c"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:54.000Z",
+          "updatedAt": "2026-07-28T00:40:54.000Z",
+          "uid": "35240-d299d737-46e2-4ef2-955d-a51aa040fb16"
+        }
+      ],
+      "id": "722b680c-33cd-4021-9708-f0dc96840f92",
+      "createdAt": "2026-07-28T00:40:54.000Z",
+      "updatedAt": "2026-07-28T00:40:54.000Z",
+      "uid": "35240-722b680c-33cd-4021-9708-f0dc96840f92"
+    },
+    {
+      "name": "?Action=AttachRolePolicy",
+      "item": [
+        {
+          "name": "Amazon IAM Attach a Managed Policy to a Role",
+          "id": "17f2145d-e558-4580-bde3-325a684c35fd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=AttachRolePolicy&Action=AttachRolePolicy&Version=2010-05-08&RoleName=<string>&PolicyArn=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "AttachRolePolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "AttachRolePolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "(Required) The name of the role to attach the policy to.",
+                  "key": "RoleName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The ARN of the managed policy to attach.",
+                  "key": "PolicyArn",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Attaches the specified managed policy to the specified IAM role."
+          },
+          "response": [
+            {
+              "id": "fed3bda2-6d08-4467-930c-155d531ef17e",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=AttachRolePolicy&Version=2010-05-08&RoleName=<string>&PolicyArn=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "AttachRolePolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the role to attach the policy to.",
+                      "key": "RoleName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ARN of the managed policy to attach.",
+                      "key": "PolicyArn",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-fed3bda2-6d08-4467-930c-155d531ef17e"
+            },
+            {
+              "id": "c02274c1-2fb1-4014-a555-959109591ec0",
+              "name": "NoSuchEntity - Role or policy does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=AttachRolePolicy&Version=2010-05-08&RoleName=<string>&PolicyArn=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "AttachRolePolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the role to attach the policy to.",
+                      "key": "RoleName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ARN of the managed policy to attach.",
+                      "key": "PolicyArn",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-c02274c1-2fb1-4014-a555-959109591ec0"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:54.000Z",
+          "updatedAt": "2026-07-28T00:40:54.000Z",
+          "uid": "35240-17f2145d-e558-4580-bde3-325a684c35fd"
+        }
+      ],
+      "id": "0481a1b6-0448-4540-bbd9-ccf483fa291c",
+      "createdAt": "2026-07-28T00:40:54.000Z",
+      "updatedAt": "2026-07-28T00:40:54.000Z",
+      "uid": "35240-0481a1b6-0448-4540-bbd9-ccf483fa291c"
+    },
+    {
+      "name": "?Action=DetachUserPolicy",
+      "item": [
+        {
+          "name": "Amazon IAM Detach a Managed Policy from a User",
+          "id": "b57a6eb9-f220-4043-be12-bf20d17a91e6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DetachUserPolicy&Action=DetachUserPolicy&Version=2010-05-08&UserName=<string>&PolicyArn=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DetachUserPolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DetachUserPolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "(Required) The name of the IAM user to detach the policy from.",
+                  "key": "UserName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The ARN of the managed policy to detach.",
+                  "key": "PolicyArn",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Removes the specified managed policy from the specified user."
+          },
+          "response": [
+            {
+              "id": "28ea2aae-28a7-4ee1-a2af-eb5c7b8d8fc2",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DetachUserPolicy&Version=2010-05-08&UserName=<string>&PolicyArn=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DetachUserPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the IAM user to detach the policy from.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ARN of the managed policy to detach.",
+                      "key": "PolicyArn",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-28ea2aae-28a7-4ee1-a2af-eb5c7b8d8fc2"
+            },
+            {
+              "id": "26826cea-e36e-4bc5-adfa-216d5d3068bd",
+              "name": "NoSuchEntity - User or policy does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DetachUserPolicy&Version=2010-05-08&UserName=<string>&PolicyArn=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DetachUserPolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the IAM user to detach the policy from.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ARN of the managed policy to detach.",
+                      "key": "PolicyArn",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-26826cea-e36e-4bc5-adfa-216d5d3068bd"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:54.000Z",
+          "updatedAt": "2026-07-28T00:40:54.000Z",
+          "uid": "35240-b57a6eb9-f220-4043-be12-bf20d17a91e6"
+        }
+      ],
+      "id": "fa1058fe-bb79-4014-bee5-7ec9ee8f17bc",
+      "createdAt": "2026-07-28T00:40:54.000Z",
+      "updatedAt": "2026-07-28T00:40:54.000Z",
+      "uid": "35240-fa1058fe-bb79-4014-bee5-7ec9ee8f17bc"
+    },
+    {
+      "name": "?Action=DetachRolePolicy",
+      "item": [
+        {
+          "name": "Amazon IAM Detach a Managed Policy from a Role",
+          "id": "dbd3dabd-b3be-4769-a753-f19663ab6b95",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DetachRolePolicy&Action=DetachRolePolicy&Version=2010-05-08&RoleName=<string>&PolicyArn=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DetachRolePolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DetachRolePolicy"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "(Required) The name of the role to detach the policy from.",
+                  "key": "RoleName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The ARN of the managed policy to detach.",
+                  "key": "PolicyArn",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Removes the specified managed policy from the specified role."
+          },
+          "response": [
+            {
+              "id": "f5e0258f-db80-4a15-904c-5fb0ebf836b4",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DetachRolePolicy&Version=2010-05-08&RoleName=<string>&PolicyArn=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DetachRolePolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the role to detach the policy from.",
+                      "key": "RoleName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ARN of the managed policy to detach.",
+                      "key": "PolicyArn",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-f5e0258f-db80-4a15-904c-5fb0ebf836b4"
+            },
+            {
+              "id": "2a3ffd69-8f48-47b7-ab1d-6e2a13a76f60",
+              "name": "NoSuchEntity - Role or policy does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DetachRolePolicy&Version=2010-05-08&RoleName=<string>&PolicyArn=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DetachRolePolicy"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "(Required) The name of the role to detach the policy from.",
+                      "key": "RoleName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ARN of the managed policy to detach.",
+                      "key": "PolicyArn",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:54.000Z",
+              "updatedAt": "2026-07-28T00:40:54.000Z",
+              "uid": "35240-2a3ffd69-8f48-47b7-ab1d-6e2a13a76f60"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:54.000Z",
+          "updatedAt": "2026-07-28T00:40:54.000Z",
+          "uid": "35240-dbd3dabd-b3be-4769-a753-f19663ab6b95"
+        }
+      ],
+      "id": "cfe77448-6b06-4ed4-bf12-fe45c2f73b5e",
+      "createdAt": "2026-07-28T00:40:54.000Z",
+      "updatedAt": "2026-07-28T00:40:54.000Z",
+      "uid": "35240-cfe77448-6b06-4ed4-bf12-fe45c2f73b5e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://iam.amazonaws.com"
+    }
+  ]
+}

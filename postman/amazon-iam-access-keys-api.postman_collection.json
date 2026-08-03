@@ -1,0 +1,575 @@
+{
+  "info": {
+    "_postman_id": "be488b13-74ff-4e1b-96df-e60b0648e5ea",
+    "name": "Amazon IAM Access Keys API",
+    "description": "Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.\n\nContact Support:\n Name: Kin Lane",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:40:41.000Z",
+    "updatedAt": "2026-07-28T00:40:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-be488b13-74ff-4e1b-96df-e60b0648e5ea"
+  },
+  "item": [
+    {
+      "name": "?Action=CreateAccessKey",
+      "item": [
+        {
+          "name": "Amazon IAM Create a New Access Key",
+          "id": "00c4007c-d4a6-4a24-8383-036fa3783927",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateAccessKey&Action=CreateAccessKey&Version=2010-05-08&UserName=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateAccessKey"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "CreateAccessKey"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "The name of the IAM user for the new key. If not specified, uses the calling user.",
+                  "key": "UserName",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a new AWS secret access key and corresponding AWS access key ID for the specified user."
+          },
+          "response": [
+            {
+              "id": "2002b32b-a08d-4c7e-be52-6ec745062ed4",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateAccessKey&Version=2010-05-08&UserName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateAccessKey"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "The name of the IAM user for the new key. If not specified, uses the calling user.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <CreateAccessKeyResult>\n    <AccessKey>\n      <UserName>(string)</UserName>\n      <AccessKeyId>(string)</AccessKeyId>\n      <Status>(string)</Status>\n      <SecretAccessKey>(string)</SecretAccessKey>\n      <CreateDate>(string)</CreateDate>\n    </AccessKey>\n  </CreateAccessKeyResult>\n</element>",
+              "createdAt": "2026-07-28T00:40:42.000Z",
+              "updatedAt": "2026-07-28T00:40:42.000Z",
+              "uid": "35240-2002b32b-a08d-4c7e-be52-6ec745062ed4"
+            },
+            {
+              "id": "bed98b7f-a116-44b6-a1b5-9fcb9b30a0e6",
+              "name": "LimitExceeded - Maximum number of access keys reached",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateAccessKey&Version=2010-05-08&UserName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateAccessKey"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "The name of the IAM user for the new key. If not specified, uses the calling user.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:42.000Z",
+              "updatedAt": "2026-07-28T00:40:42.000Z",
+              "uid": "35240-bed98b7f-a116-44b6-a1b5-9fcb9b30a0e6"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:42.000Z",
+          "updatedAt": "2026-07-28T00:40:42.000Z",
+          "uid": "35240-00c4007c-d4a6-4a24-8383-036fa3783927"
+        }
+      ],
+      "id": "e41e4add-d930-45c3-894c-a3b7fda2aba1",
+      "createdAt": "2026-07-28T00:40:42.000Z",
+      "updatedAt": "2026-07-28T00:40:42.000Z",
+      "uid": "35240-e41e4add-d930-45c3-894c-a3b7fda2aba1"
+    },
+    {
+      "name": "?Action=ListAccessKeys",
+      "item": [
+        {
+          "name": "Amazon IAM List Access Keys for a User",
+          "id": "c13e5a3a-e2b0-4a6c-8c5b-1186bdcba79e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=ListAccessKeys&Action=ListAccessKeys&Version=2010-05-08&UserName=<string>&Marker=<string>&MaxItems=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ListAccessKeys"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "ListAccessKeys"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "The name of the user.",
+                  "key": "UserName",
+                  "value": "<string>"
+                },
+                {
+                  "key": "Marker",
+                  "value": "<string>"
+                },
+                {
+                  "key": "MaxItems",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Returns information about the access key IDs associated with the specified IAM user."
+          },
+          "response": [
+            {
+              "id": "0f4db0ea-ce8e-453a-a934-2c3b4b313214",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ListAccessKeys&Version=2010-05-08&UserName=<string>&Marker=<string>&MaxItems=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ListAccessKeys"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "The name of the user.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxItems",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ListAccessKeysResult>\n    <AccessKeyMetadata>\n      <UserName>(string)</UserName>\n      <AccessKeyId>(string)</AccessKeyId>\n      <Status>(string)</Status>\n      <SecretAccessKey>(string)</SecretAccessKey>\n      <CreateDate>(string)</CreateDate>\n    </AccessKeyMetadata>\n    <AccessKeyMetadata>\n      <UserName>(string)</UserName>\n      <AccessKeyId>(string)</AccessKeyId>\n      <Status>(string)</Status>\n      <SecretAccessKey>(string)</SecretAccessKey>\n      <CreateDate>(string)</CreateDate>\n    </AccessKeyMetadata>\n    <IsTruncated>(boolean)</IsTruncated>\n    <Marker>(string)</Marker>\n  </ListAccessKeysResult>\n</element>",
+              "createdAt": "2026-07-28T00:40:42.000Z",
+              "updatedAt": "2026-07-28T00:40:42.000Z",
+              "uid": "35240-0f4db0ea-ce8e-453a-a934-2c3b4b313214"
+            },
+            {
+              "id": "bc458808-b649-4957-b8d1-8da8f0f97535",
+              "name": "NoSuchEntity - User does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ListAccessKeys&Version=2010-05-08&UserName=<string>&Marker=<string>&MaxItems=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ListAccessKeys"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "The name of the user.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxItems",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:42.000Z",
+              "updatedAt": "2026-07-28T00:40:42.000Z",
+              "uid": "35240-bc458808-b649-4957-b8d1-8da8f0f97535"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:42.000Z",
+          "updatedAt": "2026-07-28T00:40:42.000Z",
+          "uid": "35240-c13e5a3a-e2b0-4a6c-8c5b-1186bdcba79e"
+        }
+      ],
+      "id": "4afd8256-31a7-49b7-81e5-1cf406d2a288",
+      "createdAt": "2026-07-28T00:40:42.000Z",
+      "updatedAt": "2026-07-28T00:40:42.000Z",
+      "uid": "35240-4afd8256-31a7-49b7-81e5-1cf406d2a288"
+    },
+    {
+      "name": "?Action=DeleteAccessKey",
+      "item": [
+        {
+          "name": "Amazon IAM Delete an Access Key",
+          "id": "1e586d5f-168e-4fc2-a840-6b60066bc5d9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DeleteAccessKey&Action=DeleteAccessKey&Version=2010-05-08&UserName=<string>&AccessKeyId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteAccessKey"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DeleteAccessKey"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-08"
+                },
+                {
+                  "description": "The name of the user whose access key you want to delete.",
+                  "key": "UserName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The access key ID for the access key to delete.",
+                  "key": "AccessKeyId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Deletes the access key pair associated with the specified IAM user."
+          },
+          "response": [
+            {
+              "id": "c8ded715-6ca0-47aa-a377-8eff71c656c5",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteAccessKey&Version=2010-05-08&UserName=<string>&AccessKeyId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteAccessKey"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "The name of the user whose access key you want to delete.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The access key ID for the access key to delete.",
+                      "key": "AccessKeyId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:42.000Z",
+              "updatedAt": "2026-07-28T00:40:42.000Z",
+              "uid": "35240-c8ded715-6ca0-47aa-a377-8eff71c656c5"
+            },
+            {
+              "id": "13bac690-cc70-42c3-8b2a-583070742a38",
+              "name": "NoSuchEntity - Access key does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteAccessKey&Version=2010-05-08&UserName=<string>&AccessKeyId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteAccessKey"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "description": "The name of the user whose access key you want to delete.",
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The access key ID for the access key to delete.",
+                      "key": "AccessKeyId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:40:42.000Z",
+              "updatedAt": "2026-07-28T00:40:42.000Z",
+              "uid": "35240-13bac690-cc70-42c3-8b2a-583070742a38"
+            }
+          ],
+          "createdAt": "2026-07-28T00:40:42.000Z",
+          "updatedAt": "2026-07-28T00:40:42.000Z",
+          "uid": "35240-1e586d5f-168e-4fc2-a840-6b60066bc5d9"
+        }
+      ],
+      "id": "590031ce-4331-42c8-9b2c-c53aff858ed4",
+      "createdAt": "2026-07-28T00:40:42.000Z",
+      "updatedAt": "2026-07-28T00:40:42.000Z",
+      "uid": "35240-590031ce-4331-42c8-9b2c-c53aff858ed4"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://iam.amazonaws.com"
+    }
+  ]
+}
