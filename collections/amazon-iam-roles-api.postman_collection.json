@@ -1,0 +1,975 @@
+{
+  "item": [
+    {
+      "id": "73b53772-6394-4503-98a1-5a398e1328cb",
+      "name": "Roles",
+      "description": {
+        "content": "Operations for managing IAM roles",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db43acf5-4d3c-4b6e-985a-844f5636999a",
+          "name": "Amazon IAM Create a New IAM Role",
+          "request": {
+            "name": "Amazon IAM Create a New IAM Role",
+            "description": {
+              "content": "Creates a new role for your AWS account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateRole"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "RoleName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the role to create."
+                },
+                {
+                  "disabled": false,
+                  "key": "AssumeRolePolicyDocument",
+                  "value": "<string>",
+                  "description": "(Required) The trust relationship policy document (JSON)."
+                },
+                {
+                  "disabled": false,
+                  "key": "Path",
+                  "value": "<string>",
+                  "description": "The path to the role."
+                },
+                {
+                  "disabled": false,
+                  "key": "Description",
+                  "value": "<string>",
+                  "description": "A description of the role."
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxSessionDuration",
+                  "value": "<integer>",
+                  "description": "Maximum session duration in seconds."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc9fc35f-03c1-4c73-9d72-66fbbc3963a3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "RoleName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AssumeRolePolicyDocument",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxSessionDuration",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <CreateRoleResult>\n    <Role>\n      <Path>(string)</Path>\n      <RoleName>(string)</RoleName>\n      <RoleId>(string)</RoleId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <AssumeRolePolicyDocument>(string)</AssumeRolePolicyDocument>\n      <Description>(string)</Description>\n      <MaxSessionDuration>(integer)</MaxSessionDuration>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </Role>\n  </CreateRoleResult>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "eb5a7613-c529-480e-9083-4e2aa0772835",
+              "name": "EntityAlreadyExists - Role already exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "RoleName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AssumeRolePolicyDocument",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxSessionDuration",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "952fb697-f1fb-4152-8417-8ca74f3a525b",
+          "name": "Amazon IAM Get Information About an IAM Role",
+          "request": {
+            "name": "Amazon IAM Get Information About an IAM Role",
+            "description": {
+              "content": "Retrieves information about the specified role, including the role's path, GUID, ARN, and the trust policy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetRole"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "RoleName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the role to retrieve."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65d6e5b9-95f0-4abf-b271-24a2a7c599a8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "RoleName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <GetRoleResult>\n    <Role>\n      <Path>(string)</Path>\n      <RoleName>(string)</RoleName>\n      <RoleId>(string)</RoleId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <AssumeRolePolicyDocument>(string)</AssumeRolePolicyDocument>\n      <Description>(string)</Description>\n      <MaxSessionDuration>(integer)</MaxSessionDuration>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </Role>\n  </GetRoleResult>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "01d5237f-a381-4edb-ae25-d7b39f45d4ce",
+              "name": "NoSuchEntity - Role does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "RoleName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f651be9-f69d-4ef8-9db7-56d16dd80f55",
+          "name": "Amazon IAM List IAM Roles",
+          "request": {
+            "name": "Amazon IAM List IAM Roles",
+            "description": {
+              "content": "Lists the IAM roles that have the specified path prefix.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ListRoles"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "PathPrefix",
+                  "value": "<string>",
+                  "description": "The path prefix for filtering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "Marker",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxItems",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b96e50d-67a0-4fd7-a9e5-94827ceb958c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "PathPrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxItems",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ListRolesResult>\n    <Roles>\n      <Path>(string)</Path>\n      <RoleName>(string)</RoleName>\n      <RoleId>(string)</RoleId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <AssumeRolePolicyDocument>(string)</AssumeRolePolicyDocument>\n      <Description>(string)</Description>\n      <MaxSessionDuration>(integer)</MaxSessionDuration>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </Roles>\n    <Roles>\n      <Path>(string)</Path>\n      <RoleName>(string)</RoleName>\n      <RoleId>(string)</RoleId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <AssumeRolePolicyDocument>(string)</AssumeRolePolicyDocument>\n      <Description>(string)</Description>\n      <MaxSessionDuration>(integer)</MaxSessionDuration>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </Roles>\n    <IsTruncated>(boolean)</IsTruncated>\n    <Marker>(string)</Marker>\n  </ListRolesResult>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89ce6f87-4d7a-4cd2-a849-04c688210d0e",
+          "name": "Amazon IAM Delete an IAM Role",
+          "request": {
+            "name": "Amazon IAM Delete an IAM Role",
+            "description": {
+              "content": "Deletes the specified role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteRole"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "RoleName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the role to delete."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0de87bfc-b895-41f5-a254-7962955b6489",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "RoleName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f98ea4da-6a2d-4240-929d-2ed06a240c39",
+              "name": "NoSuchEntity - Role does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "RoleName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a7555e0-2d81-452d-9812-d3d79c15d82b",
+              "name": "DeleteConflict - Role has resources attached",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "RoleName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c98b8ebd-acad-4f66-8179-c829870214da",
+          "name": "Amazon IAM Assume an IAM Role",
+          "request": {
+            "name": "Amazon IAM Assume an IAM Role",
+            "description": {
+              "content": "Returns a set of temporary security credentials that you can use to access AWS resources. Uses the AWS STS service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "AssumeRole"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2011-06-15",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "RoleArn",
+                  "value": "<string>",
+                  "description": "(Required) The ARN of the role to assume."
+                },
+                {
+                  "disabled": false,
+                  "key": "RoleSessionName",
+                  "value": "<string>",
+                  "description": "(Required) An identifier for the assumed role session."
+                },
+                {
+                  "disabled": false,
+                  "key": "DurationSeconds",
+                  "value": "<integer>",
+                  "description": "Duration of the role session in seconds."
+                },
+                {
+                  "disabled": false,
+                  "key": "ExternalId",
+                  "value": "<string>",
+                  "description": "A unique identifier used by third parties."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3b1dc51-46b0-4952-a7e9-f607b233f0e7",
+              "name": "Successful response with temporary credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2011-06-15"
+                    },
+                    {
+                      "key": "RoleArn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RoleSessionName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DurationSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ExternalId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "041bb1eb-5840-4fb2-9a53-5b073a582486",
+              "name": "AccessDenied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2011-06-15"
+                    },
+                    {
+                      "key": "RoleArn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RoleSessionName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DurationSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ExternalId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://iam.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e02b2e82-0c13-4f8d-a620-08fcedaaf79a",
+    "name": "Amazon IAM Access Keys Roles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.\n\nContact Support:\n Name: Kin Lane",
+      "type": "text/plain"
+    }
+  }
+}

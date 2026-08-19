@@ -1,0 +1,292 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon IAM Access Keys Policies API",
+    "version": "2010-05-08"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IAM Create a New IAM Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=CreatePolicy",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "PolicyName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the policy to create."
+              },
+              {
+                "name": "PolicyDocument",
+                "value": "",
+                "type": "query",
+                "description": "The JSON policy document."
+              },
+              {
+                "name": "Path",
+                "value": "",
+                "type": "query",
+                "description": "The path for the policy."
+              },
+              {
+                "name": "Description",
+                "value": "",
+                "type": "query",
+                "description": "A description of the policy."
+              }
+            ]
+          },
+          "docs": "Creates a new managed policy for your AWS account."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Get Information About an IAM Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=GetPolicy",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "PolicyArn",
+                "value": "",
+                "type": "query",
+                "description": "The ARN of the policy to retrieve."
+              }
+            ]
+          },
+          "docs": "Retrieves information about the specified managed policy, including the policy's default version and the total number of IAM entities the policy is attached to."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM List IAM Policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=ListPolicies",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Scope",
+                "value": "",
+                "type": "query",
+                "description": "Filter by scope (All, AWS, or Local)."
+              },
+              {
+                "name": "OnlyAttached",
+                "value": "",
+                "type": "query",
+                "description": "Filter to only attached policies."
+              },
+              {
+                "name": "PathPrefix",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "MaxItems",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists all the managed policies that are available in your AWS account."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Attach a Managed Policy to a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=AttachUserPolicy",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the IAM user to attach the policy to."
+              },
+              {
+                "name": "PolicyArn",
+                "value": "",
+                "type": "query",
+                "description": "The ARN of the managed policy to attach."
+              }
+            ]
+          },
+          "docs": "Attaches the specified managed policy to the specified user."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Attach a Managed Policy to a Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=AttachRolePolicy",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "RoleName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the role to attach the policy to."
+              },
+              {
+                "name": "PolicyArn",
+                "value": "",
+                "type": "query",
+                "description": "The ARN of the managed policy to attach."
+              }
+            ]
+          },
+          "docs": "Attaches the specified managed policy to the specified IAM role."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Detach a Managed Policy from a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=DetachUserPolicy",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the IAM user to detach the policy from."
+              },
+              {
+                "name": "PolicyArn",
+                "value": "",
+                "type": "query",
+                "description": "The ARN of the managed policy to detach."
+              }
+            ]
+          },
+          "docs": "Removes the specified managed policy from the specified user."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Detach a Managed Policy from a Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=DetachRolePolicy",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "RoleName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the role to detach the policy from."
+              },
+              {
+                "name": "PolicyArn",
+                "value": "",
+                "type": "query",
+                "description": "The ARN of the managed policy to detach."
+              }
+            ]
+          },
+          "docs": "Removes the specified managed policy from the specified role."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

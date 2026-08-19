@@ -1,0 +1,223 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon IAM Access Keys Roles API",
+    "version": "2010-05-08"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IAM Create a New IAM Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=CreateRole",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "RoleName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the role to create."
+              },
+              {
+                "name": "AssumeRolePolicyDocument",
+                "value": "",
+                "type": "query",
+                "description": "The trust relationship policy document (JSON)."
+              },
+              {
+                "name": "Path",
+                "value": "",
+                "type": "query",
+                "description": "The path to the role."
+              },
+              {
+                "name": "Description",
+                "value": "",
+                "type": "query",
+                "description": "A description of the role."
+              },
+              {
+                "name": "MaxSessionDuration",
+                "value": "",
+                "type": "query",
+                "description": "Maximum session duration in seconds."
+              }
+            ]
+          },
+          "docs": "Creates a new role for your AWS account."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Get Information About an IAM Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=GetRole",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "RoleName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the role to retrieve."
+              }
+            ]
+          },
+          "docs": "Retrieves information about the specified role, including the role's path, GUID, ARN, and the trust policy."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM List IAM Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=ListRoles",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "PathPrefix",
+                "value": "",
+                "type": "query",
+                "description": "The path prefix for filtering the results."
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "MaxItems",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists the IAM roles that have the specified path prefix."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Delete an IAM Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=DeleteRole",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "RoleName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the role to delete."
+              }
+            ]
+          },
+          "docs": "Deletes the specified role."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Assume an IAM Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=AssumeRole",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "RoleArn",
+                "value": "",
+                "type": "query",
+                "description": "The ARN of the role to assume."
+              },
+              {
+                "name": "RoleSessionName",
+                "value": "",
+                "type": "query",
+                "description": "An identifier for the assumed role session."
+              },
+              {
+                "name": "DurationSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Duration of the role session in seconds."
+              },
+              {
+                "name": "ExternalId",
+                "value": "",
+                "type": "query",
+                "description": "A unique identifier used by third parties."
+              }
+            ]
+          },
+          "docs": "Returns a set of temporary security credentials that you can use to access AWS resources. Uses the AWS STS service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

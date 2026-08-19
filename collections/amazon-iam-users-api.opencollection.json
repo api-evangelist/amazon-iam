@@ -1,0 +1,207 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon IAM Access Keys Users API",
+    "version": "2010-05-08"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IAM Create a New IAM User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=CreateUser",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the user to create."
+              },
+              {
+                "name": "Path",
+                "value": "",
+                "type": "query",
+                "description": "The path for the user name."
+              },
+              {
+                "name": "Tags.member.N",
+                "value": "",
+                "type": "query",
+                "description": "Tags to attach to the user."
+              }
+            ]
+          },
+          "docs": "Creates a new IAM user for your AWS account."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Get Information About an IAM User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=GetUser",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the user to retrieve. If not specified, the user name is determined from the access key used."
+              }
+            ]
+          },
+          "docs": "Retrieves information about the specified IAM user, including the user's creation date, path, unique ID, and ARN."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM List IAM Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=ListUsers",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "PathPrefix",
+                "value": "",
+                "type": "query",
+                "description": "The path prefix for filtering the results."
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query",
+                "description": "Pagination marker from a previous response."
+              },
+              {
+                "name": "MaxItems",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              }
+            ]
+          },
+          "docs": "Lists the IAM users that have the specified path prefix."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Update an IAM User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=UpdateUser",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query",
+                "description": "Name of the user to update."
+              },
+              {
+                "name": "NewUserName",
+                "value": "",
+                "type": "query",
+                "description": "New name for the user."
+              },
+              {
+                "name": "NewPath",
+                "value": "",
+                "type": "query",
+                "description": "New path for the user."
+              }
+            ]
+          },
+          "docs": "Updates the name and/or the path of the specified IAM user."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Delete an IAM User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=DeleteUser",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the user to delete."
+              }
+            ]
+          },
+          "docs": "Deletes the specified IAM user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

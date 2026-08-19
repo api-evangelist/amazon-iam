@@ -1,0 +1,1055 @@
+{
+  "item": [
+    {
+      "id": "b6754675-4437-4bc6-95de-f4ae0275ee61",
+      "name": "Users",
+      "description": {
+        "content": "Operations for managing IAM users",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bfa42578-743d-40c0-810e-b02af9919a18",
+          "name": "Amazon IAM Create a New IAM User",
+          "request": {
+            "name": "Amazon IAM Create a New IAM User",
+            "description": {
+              "content": "Creates a new IAM user for your AWS account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateUser"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "UserName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the user to create."
+                },
+                {
+                  "disabled": false,
+                  "key": "Path",
+                  "value": "<string>",
+                  "description": "The path for the user name."
+                },
+                {
+                  "disabled": false,
+                  "key": "Tags.member.N",
+                  "value": "<string>",
+                  "description": "Tags to attach to the user."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9c5e62a-434b-4f89-8036-98e544499312",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Tags.member.N",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <CreateUserResult>\n    <User>\n      <Path>(string)</Path>\n      <UserName>(string)</UserName>\n      <UserId>(string)</UserId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <PasswordLastUsed>(string)</PasswordLastUsed>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </User>\n  </CreateUserResult>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "da5d33d3-e656-48be-a8bf-60e3e14dfaa5",
+              "name": "ValidationError or LimitExceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Tags.member.N",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "431370ea-27f2-43aa-b1ae-c03bd63af034",
+              "name": "EntityAlreadyExists - User already exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Path",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Tags.member.N",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57217be3-e04a-4307-a9d7-4b0a78b0cf9f",
+          "name": "Amazon IAM Get Information About an IAM User",
+          "request": {
+            "name": "Amazon IAM Get Information About an IAM User",
+            "description": {
+              "content": "Retrieves information about the specified IAM user, including the user's creation date, path, unique ID, and ARN.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetUser"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "UserName",
+                  "value": "<string>",
+                  "description": "The name of the user to retrieve. If not specified, the user name is determined from the access key used."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "609a3e7c-da25-4542-bda5-ee76f386d993",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <GetUserResult>\n    <User>\n      <Path>(string)</Path>\n      <UserName>(string)</UserName>\n      <UserId>(string)</UserId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <PasswordLastUsed>(string)</PasswordLastUsed>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </User>\n  </GetUserResult>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "205a69c2-55bc-4db6-ae8f-871509984ba4",
+              "name": "NoSuchEntity - User does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46a4f8b3-a3ef-4003-91db-5f6784272ce7",
+          "name": "Amazon IAM List IAM Users",
+          "request": {
+            "name": "Amazon IAM List IAM Users",
+            "description": {
+              "content": "Lists the IAM users that have the specified path prefix.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ListUsers"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "PathPrefix",
+                  "value": "<string>",
+                  "description": "The path prefix for filtering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "Marker",
+                  "value": "<string>",
+                  "description": "Pagination marker from a previous response."
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxItems",
+                  "value": "<integer>",
+                  "description": "Maximum number of items to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07dd498a-94b3-42df-8180-5b40ca3b6815",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "PathPrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxItems",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ListUsersResult>\n    <Users>\n      <Path>(string)</Path>\n      <UserName>(string)</UserName>\n      <UserId>(string)</UserId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <PasswordLastUsed>(string)</PasswordLastUsed>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </Users>\n    <Users>\n      <Path>(string)</Path>\n      <UserName>(string)</UserName>\n      <UserId>(string)</UserId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <PasswordLastUsed>(string)</PasswordLastUsed>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </Users>\n    <IsTruncated>(boolean)</IsTruncated>\n    <Marker>(string)</Marker>\n  </ListUsersResult>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "623effc1-8250-480e-bab2-47a43fd09a7b",
+          "name": "Amazon IAM Update an IAM User",
+          "request": {
+            "name": "Amazon IAM Update an IAM User",
+            "description": {
+              "content": "Updates the name and/or the path of the specified IAM user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "UpdateUser"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "UserName",
+                  "value": "<string>",
+                  "description": "(Required) Name of the user to update."
+                },
+                {
+                  "disabled": false,
+                  "key": "NewUserName",
+                  "value": "<string>",
+                  "description": "New name for the user."
+                },
+                {
+                  "disabled": false,
+                  "key": "NewPath",
+                  "value": "<string>",
+                  "description": "New path for the user."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0cff3ae9-8d24-4d8b-8500-bedcbdbab72f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NewUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NewPath",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8d9e6cde-055e-4b1f-8256-e701d0a5aadb",
+              "name": "NoSuchEntity - User does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NewUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NewPath",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c306cb9d-5033-456d-981c-73934774c2d2",
+              "name": "EntityAlreadyExists - New user name already taken",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NewUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NewPath",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fad7119-b135-418f-a5f8-8f37213cd7a9",
+          "name": "Amazon IAM Delete an IAM User",
+          "request": {
+            "name": "Amazon IAM Delete an IAM User",
+            "description": {
+              "content": "Deletes the specified IAM user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteUser"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "UserName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the user to delete."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2b010bf-b52a-41af-90d0-eeb5de932392",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bf3fbbfb-2a69-462b-a061-19d3d3f1d462",
+              "name": "NoSuchEntity - User does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4fbb9b95-dd06-495f-83bc-bf28f931e0c9",
+              "name": "DeleteConflict - User has resources attached",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://iam.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "afabf85f-a5fa-4084-8009-941754707bb7",
+    "name": "Amazon IAM Access Keys Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.\n\nContact Support:\n Name: Kin Lane",
+      "type": "text/plain"
+    }
+  }
+}

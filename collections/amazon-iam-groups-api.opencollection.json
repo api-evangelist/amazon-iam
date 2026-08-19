@@ -1,0 +1,208 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon IAM Access Keys Groups API",
+    "version": "2010-05-08"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IAM Create a New IAM Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=CreateGroup",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "GroupName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the group to create."
+              },
+              {
+                "name": "Path",
+                "value": "",
+                "type": "query",
+                "description": "The path to the group."
+              }
+            ]
+          },
+          "docs": "Creates a new group."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Get Information About an IAM Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=GetGroup",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "GroupName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the group."
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "MaxItems",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of IAM users that are in the specified IAM group."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM List IAM Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=ListGroups",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "PathPrefix",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "MaxItems",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists the IAM groups that have the specified path prefix."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Add a User to an IAM Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=AddUserToGroup",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "GroupName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the group to update."
+              },
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the user to add."
+              }
+            ]
+          },
+          "docs": "Adds the specified user to the specified group."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Remove a User from an IAM Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=RemoveUserFromGroup",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "GroupName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the group to update."
+              },
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the user to remove."
+              }
+            ]
+          },
+          "docs": "Removes the specified user from the specified group."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

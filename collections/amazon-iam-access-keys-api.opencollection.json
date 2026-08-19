@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon IAM Access Keys API",
+    "version": "2010-05-08"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Access Keys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon IAM Create a New Access Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=CreateAccessKey",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the IAM user for the new key. If not specified, uses the calling user."
+              }
+            ]
+          },
+          "docs": "Creates a new AWS secret access key and corresponding AWS access key ID for the specified user."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM List Access Keys for a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=ListAccessKeys",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the user."
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "MaxItems",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns information about the access key IDs associated with the specified IAM user."
+        },
+        {
+          "info": {
+            "name": "Amazon IAM Delete an Access Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://iam.amazonaws.com/?Action=DeleteAccessKey",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the user whose access key you want to delete."
+              },
+              {
+                "name": "AccessKeyId",
+                "value": "",
+                "type": "query",
+                "description": "The access key ID for the access key to delete."
+              }
+            ]
+          },
+          "docs": "Deletes the access key pair associated with the specified IAM user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,892 @@
+{
+  "item": [
+    {
+      "id": "04c44e99-cc56-4256-9136-f40ff091f1d3",
+      "name": "Groups",
+      "description": {
+        "content": "Operations for managing IAM groups",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c2daf4fe-97ee-463e-a3ae-2f46e147802a",
+          "name": "Amazon IAM Create a New IAM Group",
+          "request": {
+            "name": "Amazon IAM Create a New IAM Group",
+            "description": {
+              "content": "Creates a new group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateGroup"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "GroupName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the group to create."
+                },
+                {
+                  "disabled": false,
+                  "key": "Path",
+                  "value": "<string>",
+                  "description": "The path to the group."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "674456d5-9cbd-48ab-bff9-1250ee3f1092",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "GroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Path",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <CreateGroupResult>\n    <Group>\n      <Path>(string)</Path>\n      <GroupName>(string)</GroupName>\n      <GroupId>(string)</GroupId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n    </Group>\n  </CreateGroupResult>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "ec6acd9b-fa95-4ed5-afb5-660289d48069",
+              "name": "EntityAlreadyExists - Group already exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "GroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Path",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "214842b2-a165-4f64-ad70-3a5d844cec92",
+          "name": "Amazon IAM Get Information About an IAM Group",
+          "request": {
+            "name": "Amazon IAM Get Information About an IAM Group",
+            "description": {
+              "content": "Returns a list of IAM users that are in the specified IAM group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetGroup"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "GroupName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the group."
+                },
+                {
+                  "disabled": false,
+                  "key": "Marker",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxItems",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8175fae-3692-4db6-8570-cc6c88072f40",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "GroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxItems",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <GetGroupResult>\n    <Group>\n      <Path>(string)</Path>\n      <GroupName>(string)</GroupName>\n      <GroupId>(string)</GroupId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n    </Group>\n    <Users>\n      <Path>(string)</Path>\n      <UserName>(string)</UserName>\n      <UserId>(string)</UserId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <PasswordLastUsed>(string)</PasswordLastUsed>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </Users>\n    <Users>\n      <Path>(string)</Path>\n      <UserName>(string)</UserName>\n      <UserId>(string)</UserId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n      <PasswordLastUsed>(string)</PasswordLastUsed>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n      <Tags>\n        <Key>(string)</Key>\n        <Value>(string)</Value>\n      </Tags>\n    </Users>\n    <IsTruncated>(boolean)</IsTruncated>\n    <Marker>(string)</Marker>\n  </GetGroupResult>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "abd1beca-6811-44f6-be56-de9fe44d4bb7",
+              "name": "NoSuchEntity - Group does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "GroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxItems",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70ee8a75-7214-430b-ad36-5e6437b9b58c",
+          "name": "Amazon IAM List IAM Groups",
+          "request": {
+            "name": "Amazon IAM List IAM Groups",
+            "description": {
+              "content": "Lists the IAM groups that have the specified path prefix.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ListGroups"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "PathPrefix",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Marker",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxItems",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1800bf31-aaac-4d50-8a7e-65a6ea3a6c5c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "PathPrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxItems",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ListGroupsResult>\n    <Groups>\n      <Path>(string)</Path>\n      <GroupName>(string)</GroupName>\n      <GroupId>(string)</GroupId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n    </Groups>\n    <Groups>\n      <Path>(string)</Path>\n      <GroupName>(string)</GroupName>\n      <GroupId>(string)</GroupId>\n      <Arn>(string)</Arn>\n      <CreateDate>(string)</CreateDate>\n    </Groups>\n    <IsTruncated>(boolean)</IsTruncated>\n    <Marker>(string)</Marker>\n  </ListGroupsResult>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a290b45-6b2f-4583-a049-59f3abe50fd8",
+          "name": "Amazon IAM Add a User to an IAM Group",
+          "request": {
+            "name": "Amazon IAM Add a User to an IAM Group",
+            "description": {
+              "content": "Adds the specified user to the specified group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "AddUserToGroup"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "GroupName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the group to update."
+                },
+                {
+                  "disabled": false,
+                  "key": "UserName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the user to add."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f954659-930d-404c-8d59-97181140eae4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "GroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c6581aa-26ba-4fc3-9509-6d2553ab6f7d",
+              "name": "NoSuchEntity - Group or user does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "GroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57e54475-3053-46ea-bae9-ac4e757933c1",
+          "name": "Amazon IAM Remove a User from an IAM Group",
+          "request": {
+            "name": "Amazon IAM Remove a User from an IAM Group",
+            "description": {
+              "content": "Removes the specified user from the specified group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "RemoveUserFromGroup"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-08",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "GroupName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the group to update."
+                },
+                {
+                  "disabled": false,
+                  "key": "UserName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the user to remove."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f682b39-9afb-486f-b73a-b9c7c6ef3179",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "GroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "953c5cf1-60cd-4dda-8c27-6f30ec12d278",
+              "name": "NoSuchEntity - Group or user does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-08"
+                    },
+                    {
+                      "key": "GroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://iam.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "daaf041b-2549-43cd-b832-b69bae5523ae",
+    "name": "Amazon IAM Access Keys Groups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.\n\nContact Support:\n Name: Kin Lane",
+      "type": "text/plain"
+    }
+  }
+}
