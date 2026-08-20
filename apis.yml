@@ -64,6 +64,8 @@ apis:
   humanURL: https://aws.amazon.com/iam/
   baseURL: https://iam.amazonaws.com
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -142,6 +144,8 @@ apis:
   humanURL: https://aws.amazon.com/iam/
   baseURL: https://iam.amazonaws.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
