@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon IAM Access Keys Users API
   description: Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
@@ -275,18 +275,33 @@ components:
       - UserId
       - Arn
       - CreateDate
-    GetUserResponse:
-      type: object
-      properties:
-        GetUserResult:
-          type: object
-          properties:
-            User:
-              $ref: '#/components/schemas/User'
     CreateUserResponse:
       type: object
       properties:
         CreateUserResult:
+          type: object
+          properties:
+            User:
+              $ref: '#/components/schemas/User'
+    Tag:
+      type: object
+      properties:
+        Key:
+          type: string
+          description: The key name for the tag.
+          minLength: 1
+          maxLength: 128
+        Value:
+          type: string
+          description: The value for the tag.
+          maxLength: 256
+      required:
+      - Key
+      - Value
+    GetUserResponse:
+      type: object
+      properties:
+        GetUserResult:
           type: object
           properties:
             User:
@@ -305,21 +320,6 @@ components:
               type: boolean
             Marker:
               type: string
-    Tag:
-      type: object
-      properties:
-        Key:
-          type: string
-          description: The key name for the tag.
-          minLength: 1
-          maxLength: 128
-        Value:
-          type: string
-          description: The value for the tag.
-          maxLength: 256
-      required:
-      - Key
-      - Value
   securitySchemes:
     AWS4Auth:
       type: apiKey

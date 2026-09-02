@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon IAM Access Keys Policies API
   description: Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
@@ -340,18 +340,24 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ListPoliciesResponse:
+      type: object
+      properties:
+        ListPoliciesResult:
+          type: object
+          properties:
+            Policies:
+              type: array
+              items:
+                $ref: '#/components/schemas/Policy'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
     CreatePolicyResponse:
       type: object
       properties:
         CreatePolicyResult:
-          type: object
-          properties:
-            Policy:
-              $ref: '#/components/schemas/Policy'
-    GetPolicyResponse:
-      type: object
-      properties:
-        GetPolicyResult:
           type: object
           properties:
             Policy:
@@ -396,20 +402,14 @@ components:
       - PolicyId
       - Arn
       - CreateDate
-    ListPoliciesResponse:
+    GetPolicyResponse:
       type: object
       properties:
-        ListPoliciesResult:
+        GetPolicyResult:
           type: object
           properties:
-            Policies:
-              type: array
-              items:
-                $ref: '#/components/schemas/Policy'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
+            Policy:
+              $ref: '#/components/schemas/Policy'
   securitySchemes:
     AWS4Auth:
       type: apiKey
