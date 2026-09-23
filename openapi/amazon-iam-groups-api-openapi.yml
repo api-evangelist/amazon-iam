@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon IAM Access Keys Groups API
+  title: Amazon IAM Groups API
   description: Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
   version: '2010-05-08'
   contact:
@@ -242,6 +242,67 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Group:
+      type: object
+      properties:
+        Path:
+          type: string
+          description: The path to the group.
+        GroupName:
+          type: string
+          description: The friendly name that identifies the group.
+        GroupId:
+          type: string
+          description: The stable and unique string identifying the group.
+        Arn:
+          type: string
+          description: The Amazon Resource Name (ARN) specifying the group.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date and time when the group was created.
+      required:
+      - GroupName
+      - GroupId
+      - Arn
+      - CreateDate
+    CreateGroupResponse:
+      type: object
+      properties:
+        CreateGroupResult:
+          type: object
+          properties:
+            Group:
+              $ref: '#/components/schemas/Group'
+    ListGroupsResponse:
+      type: object
+      properties:
+        ListGroupsResult:
+          type: object
+          properties:
+            Groups:
+              type: array
+              items:
+                $ref: '#/components/schemas/Group'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    Tag:
+      type: object
+      properties:
+        Key:
+          type: string
+          description: The key name for the tag.
+          minLength: 1
+          maxLength: 128
+        Value:
+          type: string
+          description: The value for the tag.
+          maxLength: 256
+      required:
+      - Key
+      - Value
     User:
       type: object
       properties:
@@ -274,38 +335,6 @@ components:
       - UserId
       - Arn
       - CreateDate
-    CreateGroupResponse:
-      type: object
-      properties:
-        CreateGroupResult:
-          type: object
-          properties:
-            Group:
-              $ref: '#/components/schemas/Group'
-    Group:
-      type: object
-      properties:
-        Path:
-          type: string
-          description: The path to the group.
-        GroupName:
-          type: string
-          description: The friendly name that identifies the group.
-        GroupId:
-          type: string
-          description: The stable and unique string identifying the group.
-        Arn:
-          type: string
-          description: The Amazon Resource Name (ARN) specifying the group.
-        CreateDate:
-          type: string
-          format: date-time
-          description: The date and time when the group was created.
-      required:
-      - GroupName
-      - GroupId
-      - Arn
-      - CreateDate
     GetGroupResponse:
       type: object
       properties:
@@ -318,35 +347,6 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/User'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
-    Tag:
-      type: object
-      properties:
-        Key:
-          type: string
-          description: The key name for the tag.
-          minLength: 1
-          maxLength: 128
-        Value:
-          type: string
-          description: The value for the tag.
-          maxLength: 256
-      required:
-      - Key
-      - Value
-    ListGroupsResponse:
-      type: object
-      properties:
-        ListGroupsResult:
-          type: object
-          properties:
-            Groups:
-              type: array
-              items:
-                $ref: '#/components/schemas/Group'
             IsTruncated:
               type: boolean
             Marker:

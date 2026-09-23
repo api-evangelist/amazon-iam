@@ -154,20 +154,6 @@ components:
           properties:
             AccessKey:
               $ref: '#/components/schemas/AccessKey'
-    ListAccessKeysResponse:
-      type: object
-      properties:
-        ListAccessKeysResult:
-          type: object
-          properties:
-            AccessKeyMetadata:
-              type: array
-              items:
-                $ref: '#/components/schemas/AccessKey'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
     AccessKey:
       type: object
       properties:
@@ -194,6 +180,20 @@ components:
       - UserName
       - AccessKeyId
       - Status
+    ListAccessKeysResponse:
+      type: object
+      properties:
+        ListAccessKeysResult:
+          type: object
+          properties:
+            AccessKeyMetadata:
+              type: array
+              items:
+                $ref: '#/components/schemas/AccessKey'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
   securitySchemes:
     AWS4Auth:
       type: apiKey

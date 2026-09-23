@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon IAM Access Keys Roles API
+  title: Amazon IAM Roles API
   description: Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
   version: '2010-05-08'
   contact:
@@ -262,20 +262,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ListRolesResponse:
-      type: object
-      properties:
-        ListRolesResult:
-          type: object
-          properties:
-            Roles:
-              type: array
-              items:
-                $ref: '#/components/schemas/Role'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
     GetRoleResponse:
       type: object
       properties:
@@ -284,6 +270,29 @@ components:
           properties:
             Role:
               $ref: '#/components/schemas/Role'
+    CreateRoleResponse:
+      type: object
+      properties:
+        CreateRoleResult:
+          type: object
+          properties:
+            Role:
+              $ref: '#/components/schemas/Role'
+    Tag:
+      type: object
+      properties:
+        Key:
+          type: string
+          description: The key name for the tag.
+          minLength: 1
+          maxLength: 128
+        Value:
+          type: string
+          description: The value for the tag.
+          maxLength: 256
+      required:
+      - Key
+      - Value
     Role:
       type: object
       properties:
@@ -322,29 +331,20 @@ components:
       - Arn
       - CreateDate
       - AssumeRolePolicyDocument
-    Tag:
+    ListRolesResponse:
       type: object
       properties:
-        Key:
-          type: string
-          description: The key name for the tag.
-          minLength: 1
-          maxLength: 128
-        Value:
-          type: string
-          description: The value for the tag.
-          maxLength: 256
-      required:
-      - Key
-      - Value
-    CreateRoleResponse:
-      type: object
-      properties:
-        CreateRoleResult:
+        ListRolesResult:
           type: object
           properties:
-            Role:
-              $ref: '#/components/schemas/Role'
+            Roles:
+              type: array
+              items:
+                $ref: '#/components/schemas/Role'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
   securitySchemes:
     AWS4Auth:
       type: apiKey
