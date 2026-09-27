@@ -243,10 +243,24 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CreateUserResponse:
+    ListUsersResponse:
       type: object
       properties:
-        CreateUserResult:
+        ListUsersResult:
+          type: object
+          properties:
+            Users:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    GetUserResponse:
+      type: object
+      properties:
+        GetUserResult:
           type: object
           properties:
             User:
@@ -266,6 +280,14 @@ components:
       required:
       - Key
       - Value
+    CreateUserResponse:
+      type: object
+      properties:
+        CreateUserResult:
+          type: object
+          properties:
+            User:
+              $ref: '#/components/schemas/User'
     User:
       type: object
       properties:
@@ -298,28 +320,6 @@ components:
       - UserId
       - Arn
       - CreateDate
-    GetUserResponse:
-      type: object
-      properties:
-        GetUserResult:
-          type: object
-          properties:
-            User:
-              $ref: '#/components/schemas/User'
-    ListUsersResponse:
-      type: object
-      properties:
-        ListUsersResult:
-          type: object
-          properties:
-            Users:
-              type: array
-              items:
-                $ref: '#/components/schemas/User'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
   securitySchemes:
     AWS4Auth:
       type: apiKey

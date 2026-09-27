@@ -262,6 +262,35 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ListRolesResponse:
+      type: object
+      properties:
+        ListRolesResult:
+          type: object
+          properties:
+            Roles:
+              type: array
+              items:
+                $ref: '#/components/schemas/Role'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    Tag:
+      type: object
+      properties:
+        Key:
+          type: string
+          description: The key name for the tag.
+          minLength: 1
+          maxLength: 128
+        Value:
+          type: string
+          description: The value for the tag.
+          maxLength: 256
+      required:
+      - Key
+      - Value
     GetRoleResponse:
       type: object
       properties:
@@ -278,21 +307,6 @@ components:
           properties:
             Role:
               $ref: '#/components/schemas/Role'
-    Tag:
-      type: object
-      properties:
-        Key:
-          type: string
-          description: The key name for the tag.
-          minLength: 1
-          maxLength: 128
-        Value:
-          type: string
-          description: The value for the tag.
-          maxLength: 256
-      required:
-      - Key
-      - Value
     Role:
       type: object
       properties:
@@ -331,20 +345,6 @@ components:
       - Arn
       - CreateDate
       - AssumeRolePolicyDocument
-    ListRolesResponse:
-      type: object
-      properties:
-        ListRolesResult:
-          type: object
-          properties:
-            Roles:
-              type: array
-              items:
-                $ref: '#/components/schemas/Role'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
   securitySchemes:
     AWS4Auth:
       type: apiKey

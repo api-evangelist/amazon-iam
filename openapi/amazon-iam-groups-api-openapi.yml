@@ -266,28 +266,6 @@ components:
       - GroupId
       - Arn
       - CreateDate
-    CreateGroupResponse:
-      type: object
-      properties:
-        CreateGroupResult:
-          type: object
-          properties:
-            Group:
-              $ref: '#/components/schemas/Group'
-    ListGroupsResponse:
-      type: object
-      properties:
-        ListGroupsResult:
-          type: object
-          properties:
-            Groups:
-              type: array
-              items:
-                $ref: '#/components/schemas/Group'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
     Tag:
       type: object
       properties:
@@ -303,6 +281,44 @@ components:
       required:
       - Key
       - Value
+    ListGroupsResponse:
+      type: object
+      properties:
+        ListGroupsResult:
+          type: object
+          properties:
+            Groups:
+              type: array
+              items:
+                $ref: '#/components/schemas/Group'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    CreateGroupResponse:
+      type: object
+      properties:
+        CreateGroupResult:
+          type: object
+          properties:
+            Group:
+              $ref: '#/components/schemas/Group'
+    GetGroupResponse:
+      type: object
+      properties:
+        GetGroupResult:
+          type: object
+          properties:
+            Group:
+              $ref: '#/components/schemas/Group'
+            Users:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
     User:
       type: object
       properties:
@@ -335,22 +351,6 @@ components:
       - UserId
       - Arn
       - CreateDate
-    GetGroupResponse:
-      type: object
-      properties:
-        GetGroupResult:
-          type: object
-          properties:
-            Group:
-              $ref: '#/components/schemas/Group'
-            Users:
-              type: array
-              items:
-                $ref: '#/components/schemas/User'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
   securitySchemes:
     AWS4Auth:
       type: apiKey

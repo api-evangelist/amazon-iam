@@ -146,14 +146,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CreateAccessKeyResponse:
-      type: object
-      properties:
-        CreateAccessKeyResult:
-          type: object
-          properties:
-            AccessKey:
-              $ref: '#/components/schemas/AccessKey'
     AccessKey:
       type: object
       properties:
@@ -180,6 +172,14 @@ components:
       - UserName
       - AccessKeyId
       - Status
+    CreateAccessKeyResponse:
+      type: object
+      properties:
+        CreateAccessKeyResult:
+          type: object
+          properties:
+            AccessKey:
+              $ref: '#/components/schemas/AccessKey'
     ListAccessKeysResponse:
       type: object
       properties:
