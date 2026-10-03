@@ -340,36 +340,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    GetPolicyResponse:
-      type: object
-      properties:
-        GetPolicyResult:
-          type: object
-          properties:
-            Policy:
-              $ref: '#/components/schemas/Policy'
-    CreatePolicyResponse:
-      type: object
-      properties:
-        CreatePolicyResult:
-          type: object
-          properties:
-            Policy:
-              $ref: '#/components/schemas/Policy'
-    ListPoliciesResponse:
-      type: object
-      properties:
-        ListPoliciesResult:
-          type: object
-          properties:
-            Policies:
-              type: array
-              items:
-                $ref: '#/components/schemas/Policy'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
     Policy:
       type: object
       properties:
@@ -410,6 +380,36 @@ components:
       - PolicyId
       - Arn
       - CreateDate
+    ListPoliciesResponse:
+      type: object
+      properties:
+        ListPoliciesResult:
+          type: object
+          properties:
+            Policies:
+              type: array
+              items:
+                $ref: '#/components/schemas/Policy'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    CreatePolicyResponse:
+      type: object
+      properties:
+        CreatePolicyResult:
+          type: object
+          properties:
+            Policy:
+              $ref: '#/components/schemas/Policy'
+    GetPolicyResponse:
+      type: object
+      properties:
+        GetPolicyResult:
+          type: object
+          properties:
+            Policy:
+              $ref: '#/components/schemas/Policy'
   securitySchemes:
     AWS4Auth:
       type: apiKey

@@ -242,83 +242,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Group:
-      type: object
-      properties:
-        Path:
-          type: string
-          description: The path to the group.
-        GroupName:
-          type: string
-          description: The friendly name that identifies the group.
-        GroupId:
-          type: string
-          description: The stable and unique string identifying the group.
-        Arn:
-          type: string
-          description: The Amazon Resource Name (ARN) specifying the group.
-        CreateDate:
-          type: string
-          format: date-time
-          description: The date and time when the group was created.
-      required:
-      - GroupName
-      - GroupId
-      - Arn
-      - CreateDate
-    Tag:
-      type: object
-      properties:
-        Key:
-          type: string
-          description: The key name for the tag.
-          minLength: 1
-          maxLength: 128
-        Value:
-          type: string
-          description: The value for the tag.
-          maxLength: 256
-      required:
-      - Key
-      - Value
-    ListGroupsResponse:
-      type: object
-      properties:
-        ListGroupsResult:
-          type: object
-          properties:
-            Groups:
-              type: array
-              items:
-                $ref: '#/components/schemas/Group'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
-    CreateGroupResponse:
-      type: object
-      properties:
-        CreateGroupResult:
-          type: object
-          properties:
-            Group:
-              $ref: '#/components/schemas/Group'
-    GetGroupResponse:
-      type: object
-      properties:
-        GetGroupResult:
-          type: object
-          properties:
-            Group:
-              $ref: '#/components/schemas/Group'
-            Users:
-              type: array
-              items:
-                $ref: '#/components/schemas/User'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
     User:
       type: object
       properties:
@@ -349,6 +272,83 @@ components:
       required:
       - UserName
       - UserId
+      - Arn
+      - CreateDate
+    ListGroupsResponse:
+      type: object
+      properties:
+        ListGroupsResult:
+          type: object
+          properties:
+            Groups:
+              type: array
+              items:
+                $ref: '#/components/schemas/Group'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    Tag:
+      type: object
+      properties:
+        Key:
+          type: string
+          description: The key name for the tag.
+          minLength: 1
+          maxLength: 128
+        Value:
+          type: string
+          description: The value for the tag.
+          maxLength: 256
+      required:
+      - Key
+      - Value
+    CreateGroupResponse:
+      type: object
+      properties:
+        CreateGroupResult:
+          type: object
+          properties:
+            Group:
+              $ref: '#/components/schemas/Group'
+    GetGroupResponse:
+      type: object
+      properties:
+        GetGroupResult:
+          type: object
+          properties:
+            Group:
+              $ref: '#/components/schemas/Group'
+            Users:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    Group:
+      type: object
+      properties:
+        Path:
+          type: string
+          description: The path to the group.
+        GroupName:
+          type: string
+          description: The friendly name that identifies the group.
+        GroupId:
+          type: string
+          description: The stable and unique string identifying the group.
+        Arn:
+          type: string
+          description: The Amazon Resource Name (ARN) specifying the group.
+        CreateDate:
+          type: string
+          format: date-time
+          description: The date and time when the group was created.
+      required:
+      - GroupName
+      - GroupId
       - Arn
       - CreateDate
   securitySchemes:

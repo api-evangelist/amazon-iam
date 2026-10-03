@@ -262,20 +262,22 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ListRolesResponse:
+    CreateRoleResponse:
       type: object
       properties:
-        ListRolesResult:
+        CreateRoleResult:
           type: object
           properties:
-            Roles:
-              type: array
-              items:
-                $ref: '#/components/schemas/Role'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
+            Role:
+              $ref: '#/components/schemas/Role'
+    GetRoleResponse:
+      type: object
+      properties:
+        GetRoleResult:
+          type: object
+          properties:
+            Role:
+              $ref: '#/components/schemas/Role'
     Tag:
       type: object
       properties:
@@ -291,22 +293,20 @@ components:
       required:
       - Key
       - Value
-    GetRoleResponse:
+    ListRolesResponse:
       type: object
       properties:
-        GetRoleResult:
+        ListRolesResult:
           type: object
           properties:
-            Role:
-              $ref: '#/components/schemas/Role'
-    CreateRoleResponse:
-      type: object
-      properties:
-        CreateRoleResult:
-          type: object
-          properties:
-            Role:
-              $ref: '#/components/schemas/Role'
+            Roles:
+              type: array
+              items:
+                $ref: '#/components/schemas/Role'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
     Role:
       type: object
       properties:
