@@ -1,0 +1,51 @@
+slug: amazon-iam
+provider: Amazon IAM
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Groups
+  spec_file: amazon-iam-groups-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.9
+  evidence: AddUserToGroup  Amazon IAM Add a User to an IAM Group
+  reason: IAM group creation and user-to-group membership drives permission grouping; this is access management,
+    not organisational HR structure.
+- tag: Policies
+  spec_file: amazon-iam-policies-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.9
+  evidence: AttachUserPolicy  Amazon IAM Attach a Managed Policy to a User
+  reason: Creation and attachment/detachment of permission policies to users and roles — core access entitlement
+    administration, not corporate policy management.
+- tag: Users
+  spec_file: amazon-iam-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.9
+  evidence: CreateUser  Amazon IAM Create a New IAM User
+  reason: Technical IAM user principal lifecycle (create/update/delete) for access to AWS resources; not
+    employee master data.
+- tag: Access Keys
+  spec_file: amazon-iam-access-keys-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: CreateAccessKey  Amazon IAM Create a New Access Key; ListAccessKeys for a User
+  reason: Lifecycle of programmatic access credentials for IAM users — credential/access administration
+    within identity & access management.

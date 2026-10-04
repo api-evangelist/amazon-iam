@@ -180,6 +180,9 @@ apis:
   - type: Examples
     url: examples/amazon-iam-user-example.json
 common:
+  - type: CapabilityMap
+    url: capabilities/amazon-iam-capability-edges.yml
+    name: Amazon IAM Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-iam/overview
   - type: AgenticAccess
