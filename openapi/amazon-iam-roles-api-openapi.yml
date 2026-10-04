@@ -262,22 +262,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CreateRoleResponse:
-      type: object
-      properties:
-        CreateRoleResult:
-          type: object
-          properties:
-            Role:
-              $ref: '#/components/schemas/Role'
-    GetRoleResponse:
-      type: object
-      properties:
-        GetRoleResult:
-          type: object
-          properties:
-            Role:
-              $ref: '#/components/schemas/Role'
     Tag:
       type: object
       properties:
@@ -345,6 +329,22 @@ components:
       - Arn
       - CreateDate
       - AssumeRolePolicyDocument
+    CreateRoleResponse:
+      type: object
+      properties:
+        CreateRoleResult:
+          type: object
+          properties:
+            Role:
+              $ref: '#/components/schemas/Role'
+    GetRoleResponse:
+      type: object
+      properties:
+        GetRoleResult:
+          type: object
+          properties:
+            Role:
+              $ref: '#/components/schemas/Role'
   securitySchemes:
     AWS4Auth:
       type: apiKey

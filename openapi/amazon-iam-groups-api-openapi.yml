@@ -242,6 +242,59 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Tag:
+      type: object
+      properties:
+        Key:
+          type: string
+          description: The key name for the tag.
+          minLength: 1
+          maxLength: 128
+        Value:
+          type: string
+          description: The value for the tag.
+          maxLength: 256
+      required:
+      - Key
+      - Value
+    CreateGroupResponse:
+      type: object
+      properties:
+        CreateGroupResult:
+          type: object
+          properties:
+            Group:
+              $ref: '#/components/schemas/Group'
+    ListGroupsResponse:
+      type: object
+      properties:
+        ListGroupsResult:
+          type: object
+          properties:
+            Groups:
+              type: array
+              items:
+                $ref: '#/components/schemas/Group'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
+    GetGroupResponse:
+      type: object
+      properties:
+        GetGroupResult:
+          type: object
+          properties:
+            Group:
+              $ref: '#/components/schemas/Group'
+            Users:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
     User:
       type: object
       properties:
@@ -274,59 +327,6 @@ components:
       - UserId
       - Arn
       - CreateDate
-    ListGroupsResponse:
-      type: object
-      properties:
-        ListGroupsResult:
-          type: object
-          properties:
-            Groups:
-              type: array
-              items:
-                $ref: '#/components/schemas/Group'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
-    Tag:
-      type: object
-      properties:
-        Key:
-          type: string
-          description: The key name for the tag.
-          minLength: 1
-          maxLength: 128
-        Value:
-          type: string
-          description: The value for the tag.
-          maxLength: 256
-      required:
-      - Key
-      - Value
-    CreateGroupResponse:
-      type: object
-      properties:
-        CreateGroupResult:
-          type: object
-          properties:
-            Group:
-              $ref: '#/components/schemas/Group'
-    GetGroupResponse:
-      type: object
-      properties:
-        GetGroupResult:
-          type: object
-          properties:
-            Group:
-              $ref: '#/components/schemas/Group'
-            Users:
-              type: array
-              items:
-                $ref: '#/components/schemas/User'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
     Group:
       type: object
       properties:
