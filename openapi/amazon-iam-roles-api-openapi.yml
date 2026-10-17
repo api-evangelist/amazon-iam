@@ -262,35 +262,22 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Tag:
+    CreateRoleResponse:
       type: object
       properties:
-        Key:
-          type: string
-          description: The key name for the tag.
-          minLength: 1
-          maxLength: 128
-        Value:
-          type: string
-          description: The value for the tag.
-          maxLength: 256
-      required:
-      - Key
-      - Value
-    ListRolesResponse:
-      type: object
-      properties:
-        ListRolesResult:
+        CreateRoleResult:
           type: object
           properties:
-            Roles:
-              type: array
-              items:
-                $ref: '#/components/schemas/Role'
-            IsTruncated:
-              type: boolean
-            Marker:
-              type: string
+            Role:
+              $ref: '#/components/schemas/Role'
+    GetRoleResponse:
+      type: object
+      properties:
+        GetRoleResult:
+          type: object
+          properties:
+            Role:
+              $ref: '#/components/schemas/Role'
     Role:
       type: object
       properties:
@@ -329,22 +316,35 @@ components:
       - Arn
       - CreateDate
       - AssumeRolePolicyDocument
-    CreateRoleResponse:
+    Tag:
       type: object
       properties:
-        CreateRoleResult:
-          type: object
-          properties:
-            Role:
-              $ref: '#/components/schemas/Role'
-    GetRoleResponse:
+        Key:
+          type: string
+          description: The key name for the tag.
+          minLength: 1
+          maxLength: 128
+        Value:
+          type: string
+          description: The value for the tag.
+          maxLength: 256
+      required:
+      - Key
+      - Value
+    ListRolesResponse:
       type: object
       properties:
-        GetRoleResult:
+        ListRolesResult:
           type: object
           properties:
-            Role:
-              $ref: '#/components/schemas/Role'
+            Roles:
+              type: array
+              items:
+                $ref: '#/components/schemas/Role'
+            IsTruncated:
+              type: boolean
+            Marker:
+              type: string
   securitySchemes:
     AWS4Auth:
       type: apiKey
