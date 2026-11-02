@@ -1,0 +1,493 @@
+aid: amazon-iam
+name: Amazon IAM
+description: >-
+  Amazon Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using
+  IAM, you can create and manage AWS users, groups, roles, and policies, and use permissions to allow and deny their
+  access to AWS resources. IAM is a feature of your AWS account offered at no additional charge.
+type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: medium
+  source:
+  - plans
+  - authentication
+  - security
+  generated: '2026-09-03'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-iam.png
+url: https://raw.githubusercontent.com/api-evangelist/amazon-iam/refs/heads/main/apis.yml
+baseURL: https://iam.amazonaws.com
+tags:
+  - Identity and Access Management
+  - Authentication
+  - Authorization
+  - Amazon Web Services
+  - Identity
+  - Security
+tags_raw:
+  - Access Management
+  - Authentication
+  - Authorization
+  - AWS
+  - Identity
+  - Security
+created: '2026-03-16'
+modified: '2026-05-19'
+specificationVersion: '0.23'
+apis:
+- aid: amazon-iam:amazon-iam-access-keys-api
+  name: Amazon IAM Access Keys API
+  description: Operations for managing IAM access keys
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Access Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-access-keys-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-iam-user-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-iam-user-structure.json
+  - type: Examples
+    url: examples/amazon-iam-user-example.json
+- aid: amazon-iam:amazon-iam-groups-api
+  name: Amazon IAM Groups API
+  description: Operations for managing IAM groups
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Group
+  tags_raw:
+  - Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-iam-user-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-iam-user-structure.json
+  - type: Examples
+    url: examples/amazon-iam-user-example.json
+- aid: amazon-iam:amazon-iam-policies-api
+  name: Amazon IAM Policies API
+  description: Operations for managing IAM policies
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-policies-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-iam-user-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-iam-user-structure.json
+  - type: Examples
+    url: examples/amazon-iam-user-example.json
+- aid: amazon-iam:amazon-iam-roles-api
+  name: Amazon IAM Roles API
+  description: Operations for managing IAM roles
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-roles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-iam-user-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-iam-user-structure.json
+  - type: Examples
+    url: examples/amazon-iam-user-example.json
+- aid: amazon-iam:amazon-iam-users-api
+  name: Amazon IAM Users API
+  description: Operations for managing IAM users
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - User
+  tags_raw:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/IAM/latest/APIReference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
+  - type: Pricing
+    url: https://aws.amazon.com/iam/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iam/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-iam-user-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-iam-user-structure.json
+  - type: Examples
+    url: examples/amazon-iam-user-example.json
+- aid: amazon-iam:amazon-iam-account-password-policy-api
+  name: Amazon IAM Iam Account Password Policy API
+  description: >-
+    The Iam Account Password Policy API from Amazon IAM — 3 operation(s) for iam account password policy.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Account Password Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-account-password-policy-api-openapi.yml
+- aid: amazon-iam:amazon-iam-delegation-request-api
+  name: Amazon IAM Iam Delegation Request API
+  description: >-
+    The Iam Delegation Request API from Amazon IAM — 7 operation(s) for iam delegation request.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Delegation Request
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-delegation-request-api-openapi.yml
+- aid: amazon-iam:amazon-iam-group-policy-api
+  name: Amazon IAM Iam Group Policy API
+  description: The Iam Group Policy API from Amazon IAM — 6 operation(s) for iam group policy.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Group Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-group-policy-api-openapi.yml
+- aid: amazon-iam:amazon-iam-instance-profile-api
+  name: Amazon IAM Iam Instance Profile API
+  description: The Iam Instance Profile API from Amazon IAM — 7 operation(s) for iam instance profile.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Instance Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-instance-profile-api-openapi.yml
+- aid: amazon-iam:amazon-iam-login-profile-api
+  name: Amazon IAM Iam Login Profile API
+  description: The Iam Login Profile API from Amazon IAM — 4 operation(s) for iam login profile.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Login Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-login-profile-api-openapi.yml
+- aid: amazon-iam:amazon-iam-mfa-device-api
+  name: Amazon IAM Iam Mfa Device API
+  description: The Iam Mfa Device API from Amazon IAM — 5 operation(s) for iam mfa device.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Mfa Device
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-mfa-device-api-openapi.yml
+- aid: amazon-iam:amazon-iam-open-id-connect-provider-api
+  name: Amazon IAM Iam Open Id Connect Provider API
+  description: >-
+    The Iam Open Id Connect Provider API from Amazon IAM — 6 operation(s) for iam open id connect provider.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Open Id Connect Provider
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-open-id-connect-provider-api-openapi.yml
+- aid: amazon-iam:amazon-iam-operations-api
+  name: Amazon IAM Iam Operations API
+  description: The Iam Operations API from Amazon IAM — 61 operation(s) for iam operations.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-operations-api-openapi.yml
+- aid: amazon-iam:amazon-iam-policy-version-api
+  name: Amazon IAM Iam Policy Version API
+  description: The Iam Policy Version API from Amazon IAM — 4 operation(s) for iam policy version.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Policy Version
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-policy-version-api-openapi.yml
+- aid: amazon-iam:amazon-iam-role-policy-api
+  name: Amazon IAM Iam Role Policy API
+  description: The Iam Role Policy API from Amazon IAM — 6 operation(s) for iam role policy.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Role Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-role-policy-api-openapi.yml
+- aid: amazon-iam:amazon-iam-saml-provider-api
+  name: Amazon IAM Iam Saml Provider API
+  description: The Iam Saml Provider API from Amazon IAM — 7 operation(s) for iam saml provider.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Saml Provider
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-saml-provider-api-openapi.yml
+- aid: amazon-iam:amazon-iam-server-certificate-api
+  name: Amazon IAM Iam Server Certificate API
+  description: >-
+    The Iam Server Certificate API from Amazon IAM — 6 operation(s) for iam server certificate.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Server Certificate
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-server-certificate-api-openapi.yml
+- aid: amazon-iam:amazon-iam-service-last-accessed-detail-api
+  name: Amazon IAM Iam Service Last Accessed Detail API
+  description: >-
+    The Iam Service Last Accessed Detail API from Amazon IAM — 3 operation(s) for iam service last accessed
+    detail.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Service Last Accessed Detail
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-service-last-accessed-detail-api-openapi.yml
+- aid: amazon-iam:amazon-iam-service-specific-credential-api
+  name: Amazon IAM Iam Service Specific Credential API
+  description: >-
+    The Iam Service Specific Credential API from Amazon IAM — 5 operation(s) for iam service specific
+    credential.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Service Specific Credential
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-service-specific-credential-api-openapi.yml
+- aid: amazon-iam:amazon-iam-signing-certificate-api
+  name: Amazon IAM Iam Signing Certificate API
+  description: >-
+    The Iam Signing Certificate API from Amazon IAM — 3 operation(s) for iam signing certificate.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Signing Certificate
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-signing-certificate-api-openapi.yml
+- aid: amazon-iam:amazon-iam-ssh-public-key-api
+  name: Amazon IAM Iam Ssh Public Key API
+  description: The Iam Ssh Public Key API from Amazon IAM — 4 operation(s) for iam ssh public key.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Ssh Public Key
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-ssh-public-key-api-openapi.yml
+- aid: amazon-iam:amazon-iam-user-policy-api
+  name: Amazon IAM Iam User Policy API
+  description: The Iam User Policy API from Amazon IAM — 6 operation(s) for iam user policy.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam User Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-user-policy-api-openapi.yml
+- aid: amazon-iam:amazon-iam-virtual-mfa-device-api
+  name: Amazon IAM Iam Virtual Mfa Device API
+  description: >-
+    The Iam Virtual Mfa Device API from Amazon IAM — 3 operation(s) for iam virtual mfa device.
+  humanURL: https://aws.amazon.com/iam/
+  baseURL: https://iam.amazonaws.com
+  tags:
+  - Iam Virtual Mfa Device
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iam-virtual-mfa-device-api-openapi.yml
+common:
+  - type: Plans
+    url: plans/amazon-iam-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/amazon-iam-rate-limits.yml
+  - type: FinOps
+    url: finops/amazon-iam-finops.yml
+  - type: CapabilityMap
+    url: capabilities/amazon-iam-capability-edges.yml
+    name: Amazon IAM Business Capability Map
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-iam/overview
+  - type: AgenticAccess
+    url: agentic-access/amazon-iam-agentic-access.yml
+  - type: TrustCenter
+    url: security/amazon-iam-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-iam-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-iam-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-iam-authentication.yml
+  - type: Portal
+    url: https://aws.amazon.com/iam/
+  - type: Website
+    url: https://aws.amazon.com/iam/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/
+  - type: TermsOfService
+    url: https://aws.amazon.com/service-terms/
+  - type: PrivacyPolicy
+    url: https://aws.amazon.com/privacy/
+  - type: Support
+    url: https://aws.amazon.com/support/
+  - type: Blog
+    url: https://aws.amazon.com/blogs/security/
+  - type: GitHubOrganization
+    url: https://github.com/aws
+  - type: Console
+    url: https://console.aws.amazon.com/iam/
+  - type: Signup
+    url: https://portal.aws.amazon.com/billing/signup
+  - type: Login
+    url: https://signin.aws.amazon.com/
+  - type: StatusPage
+    url: https://health.aws.amazon.com/health/status
+  - type: YouTube
+    url: https://www.youtube.com/user/AmazonWebServices
+  - type: StackOverflow
+    url: https://stackoverflow.com/questions/tagged/amazon-iam
+  - type: Contact
+    url: https://aws.amazon.com/contact-us/
+  - type: JSONLD
+    url: json-ld/amazon-iam-context.jsonld
+  - type: SpectralRules
+    url: rules/amazon-iam-spectral-rules.yml
+  - type: Vocabulary
+    url: vocabulary/amazon-iam-vocabulary.yaml
+  - type: Features
+    data:
+      - name: User Management
+        description: Create, manage, and delete IAM users with fine-grained permissions.
+      - name: Role-Based Access Control
+        description: Define IAM roles that can be assumed by users, services, or applications.
+      - name: Policy Management
+        description: Create and attach identity-based and resource-based policies to control access.
+      - name: Multi-Factor Authentication
+        description: Enable MFA for IAM users to add an extra layer of security.
+      - name: Access Key Management
+        description: Programmatically manage AWS access keys for long-term credentials.
+      - name: Permission Boundaries
+        description: Use permission boundaries to define the maximum permissions an entity can have.
+      - name: Service Control Policies
+        description: Centrally control the maximum available permissions across AWS accounts.
+  - type: UseCases
+    data:
+      - name: Least Privilege Access
+        description: Grant only the permissions required for specific tasks to reduce the attack surface.
+      - name: Cross-Account Access
+        description: Enable users in one AWS account to assume roles in another account.
+      - name: Service-to-Service Authorization
+        description: Allow AWS services to access other services on your behalf through service roles.
+      - name: Temporary Credentials
+        description: Use STS to issue temporary security credentials for short-lived access.
+      - name: Security Compliance
+        description: Audit IAM configurations to ensure compliance with security policies and regulations.
+  - type: Integrations
+    data:
+      - name: AWS Organizations
+        description: Apply Service Control Policies across multiple AWS accounts in an organization.
+      - name: AWS CloudTrail
+        description: Log all IAM API calls for auditing and compliance tracking.
+      - name: AWS Config
+        description: Monitor IAM configuration changes and evaluate compliance with rules.
+      - name: AWS Security Hub
+        description: Centralize IAM security findings with other AWS security services.
+      - name: Amazon Cognito
+        description: Federate Cognito user pool identities with IAM roles for application access.
+  - type: Integrations
+    url: https://aws.amazon.com/marketplace
+integrations:
+  - name: Sign in
+  - name: Agent Mode
+  - name: Why AWS Marketplace?
+  - name: Get started in AWS Marketplace
+  - name: Industry
+  - name: Resources
+  - name: Become a Channel Partner
+  - name: Sell in AWS Marketplace
+  - name: Manage Your Account
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+x-parent: amazon-web-services
+x-relationship: product
