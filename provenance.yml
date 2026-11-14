@@ -5,10 +5,19 @@ artifacts:
   agentic-access/amazon-iam-agentic-access.yml:
     method: generated
     evidence: declared in the artifact
+  ai-preferences/amazon-iam-ai-preferences.yml:
+    method: harvested
+    evidence: declared in the artifact
   authentication/amazon-iam-authentication.yml:
     method: derived
     evidence: declared in the artifact
   capabilities/amazon-iam-capability-edges.yml:
+    method: unknown
+    evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
     method: unknown
     evidence: no authorship recorded
   collections/amazon-iam-access-keys-api.opencollection.json:
@@ -47,6 +56,24 @@ artifacts:
   collections/amazon-iam.postman_collection.json:
     method: derived
     evidence: openapi/amazon-iam
+  compliance/amazon-iam-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
+  conformance/amazon-iam-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-iam-conventions.yml:
+    method: searched
+    evidence: declared in the artifact
+  data-model/amazon-iam-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  eligibility/amazon-iam-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
+  errors/amazon-iam-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/amazon-iam-access-key-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -113,6 +140,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-iam-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -125,28 +155,184 @@ artifacts:
   json-schema/amazon-iam-access-key-schema.json:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-iam-assume-role-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-assume-role-with-web-identity-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-iam-create-access-key-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-create-delegation-request-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-create-delegation-request-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-iam-create-group-response-schema.json:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-iam-create-instance-profile-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-create-login-profile-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-create-login-profile-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-create-open-idconnect-provider-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-create-open-idconnect-provider-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-iam-create-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-create-policy-version-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-create-policy-version-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-iam-create-role-response-schema.json:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-iam-create-samlprovider-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-create-service-specific-credential-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-iam-create-user-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-create-virtual-mfadevice-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-create-virtual-mfadevice-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-crl-detail-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-delete-group-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-delete-login-profile-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-delete-policy-version-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-delete-role-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-delete-service-specific-credential-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-delete-signing-certificate-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-delete-sshpublic-key-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-delete-user-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-delete-virtual-mfadevice-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-detach-group-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-detach-role-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-detach-user-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-enable-mfadevice-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-generate-service-last-accessed-details-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-generate-service-last-accessed-details-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-account-password-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-delegation-request-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-delegation-request-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-federation-token-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-group-policy-request-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-iam-get-group-response-schema.json:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-iam-get-login-profile-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-login-profile-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-mfadevice-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-open-idconnect-provider-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-open-idconnect-provider-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-iam-get-policy-response-schema.json:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-iam-get-policy-version-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-role-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-iam-get-role-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-samlprovider-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-server-certificate-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-service-last-accessed-details-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-service-last-accessed-details-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-service-last-accessed-details-with-entities-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-service-last-accessed-details-with-entities-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-sshpublic-key-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-sshpublic-key-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-get-user-policy-request-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-iam-get-user-response-schema.json:
@@ -158,25 +344,193 @@ artifacts:
   json-schema/amazon-iam-list-access-keys-response-schema.json:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-iam-list-delegation-requests-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-delegation-requests-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-group-policies-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-group-policies-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-iam-list-groups-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-instance-profiles-for-role-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-instance-profiles-for-role-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-instance-profiles-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-instance-profiles-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-mfadevices-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-mfadevices-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-iam-list-policies-response-schema.json:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-iam-list-policy-versions-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-policy-versions-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-role-policies-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-role-policies-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-iam-list-roles-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-server-certificates-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-server-certificates-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-service-specific-credentials-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-service-specific-credentials-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-signing-certificates-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-signing-certificates-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-sshpublic-keys-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-sshpublic-keys-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-user-policies-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-user-policies-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-iam-list-users-response-schema.json:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-iam-list-virtual-mfadevices-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-list-virtual-mfadevices-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-iam-policy-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-profile-detail-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-put-group-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-put-role-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-put-user-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-reset-service-specific-credential-request-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-iam-role-schema.json:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-iam-scalar-crl-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-scalar-profile-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-scalar-trust-anchor-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-simulate-custom-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-simulate-principal-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-tag-instance-profile-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-tag-mfadevice-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-tag-open-idconnect-provider-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-tag-samlprovider-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-iam-tag-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-tag-server-certificate-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-trust-anchor-detail-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-untag-mfadevice-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-untag-open-idconnect-provider-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-untag-server-certificate-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-update-account-password-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-update-crl-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-update-login-profile-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-update-profile-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-update-samlprovider-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-update-server-certificate-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-update-service-specific-credential-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-update-signing-certificate-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-update-sshpublic-key-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-update-trust-anchor-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-iam-upload-server-certificate-request-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-iam-user-schema.json:
@@ -245,7 +599,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -314,17 +668,40 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-iam-openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/amazon-iam-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
+  llms/amazon-iam-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-iam-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-iam-mcp.yml:
+    method: searched
+    evidence: declared in the artifact
+  mcp/amazon-iam-tool-crosswalk.yml:
+    method: derived
+    evidence: declared in the artifact
   openapi/amazon-iam-access-keys-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-iam-account-password-policy-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  openapi/amazon-iam-crl-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-iam-delegation-request-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-iam-disable-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-iam-enable-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-iam-group-policy-api-openapi.yml:
@@ -354,6 +731,9 @@ artifacts:
   openapi/amazon-iam-policy-version-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  openapi/amazon-iam-profile-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-iam-role-policy-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
@@ -378,6 +758,9 @@ artifacts:
   openapi/amazon-iam-ssh-public-key-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  openapi/amazon-iam-trustanchor-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-iam-user-policy-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
@@ -387,8 +770,14 @@ artifacts:
   openapi/amazon-iam-virtual-mfa-device-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  packages/amazon-iam-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-iam-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/amazon-iam-plans-pricing.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   postman/amazon-iam-access-keys-api.postman_collection.json:
     method: derived
@@ -405,10 +794,16 @@ artifacts:
   postman/amazon-iam-users-api.postman_collection.json:
     method: derived
     evidence: openapi/amazon-iam-users-api
+  privacy/amazon-iam-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/amazon-iam-rate-limits.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   rules/amazon-iam-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-iam-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-iam-spectral-rules.yml:
@@ -427,8 +822,35 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   smithy/iam-2010-05-08.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/iam/service/2010-05-08/iam-2010-05-08.json
+      (sha256 c1f74d3eda26, fetched 2026-11-11T21:10:21+00:00)
+  smithy/rolesanywhere-2018-05-10.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/rolesanywhere/service/2018-05-10/rolesanywhere-2018-05-10.json
+      (sha256 3ac1d4e94539, fetched 2026-11-11T21:10:23+00:00)
+  smithy/sts-2011-06-15.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/sts/service/2011-06-15/sts-2011-06-15.json
+      (sha256 794c8b2142e3, fetched 2026-11-11T21:10:22+00:00)
+  terms/amazon-iam-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-iam-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-iam-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-iam-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-iam-midway-auth-openid-configuration.json:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-iam-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-iam-well-known.yml:
     method: unknown
     evidence: no authorship recorded
