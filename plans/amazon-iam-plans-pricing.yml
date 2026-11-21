@@ -18,7 +18,7 @@ plans:
   limits: []
 note: aws.amazon.com/iam/pricing/ redirects (301) to aws.amazon.com/iam/; the no-charge statement is quoted from the IAM User Guide.
 x-canonical:
-  generated: '2026-11-13'
+  generated: '2026-11-20'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - free
